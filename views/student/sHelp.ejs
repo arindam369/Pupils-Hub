@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Student</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="./home.css">
+
+    <link rel="stylesheet" href="./studentDashboard.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <!-- navBar ====================================== -->
+    <%- include('../../partials/navBar') %>
+
+    <div class="dashboard-container">
+
+        <!-- Student Dashboard Bullets ======================== -->
+        <%- include('sBullets') %>
+
+            <!-- Student Dashboard Body ==========================-->
+            <div class="dashboard-body">
+
+                <p class="contact-heading">Help Centre</span> </p>
+
+                <div class="support-box">
+                    <div class="support-content">
+                        <div class="harassed">
+                            <p class="harassed-text">Does Someone harass you ?</p>
+                        </div>
+                        <div class="cyberbullied">
+                            <p class="cyberbulled-text">Are you being CyberBullied ?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="antiragging-container">
+                    <div class="antiragging-content">
+                        <p> &emsp; I don't want you to feel that you are alone and helpless. We are
+                            all with you. – Please do not
+                            hesitate to ask for help.</p>
+
+                        <p> &emsp; Any body can register a complaint of Ragging. It does not have to
+                            be only the victim. If you notice an incidence of Ragging you
+                            must inform. It is your duty to do so. </p>
+                        <p>&emsp; You can also register a complaint of Ragging - Anonymously. You
+                            must however avoid this option because without knowing details it
+                            becomes difficult to take any action. We can assure you of
+                            confidentiality. </p>
+
+                        <p> &emsp; Also, the Ragging Prevention Program are ready to help. You can
+                            call any time on <a href="tel:1800 180 5522"> 1800 180 5522 </a>. It is a free phone. You
+                            can
+                            also send them E mail on <a href="mailto:helpline@antiragging.in">
+                                helpline@antiragging.in</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-support-box">
+                    <div class="help-heading">How can we help you ?</div>
+                    <div class="contact-container">
+                        <div class="contact-box">
+                            <div class="leftPart">
+                                <img src="./static/contact.png" alt="">
+                            </div>
+                            <div class="rightPart">
+                                <form action="">
+                                    <label for="Name">
+                                        <span class="contact-ques"> Name </span>
+                                        <input type="text" placeholder="Enter Your Name">
+                                    </label>
+                                    <label for="email">
+                                        <span class="contact-ques"> Email </span>
+                                        <input type="email" placeholder="Enter Your Email">
+                                    </label>
+                                    <label for="subject">
+                                        <span class="contact-ques"> Subject </span>
+                                        <input type="text" placeholder="Write a Subject">
+                                    </label>
+                                    <label for="message" class="message-ques">
+                                        <span class="contact-ques"> Message </span>
+                                        <textarea name="" id="" cols="26" rows="4"
+                                            placeholder="Describe your Issue"></textarea>
+                                    </label>
+                                    <button type="submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>

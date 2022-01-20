@@ -1,0 +1,198 @@
+body
+{
+    margin: 0%;
+    padding: 0%;
+}
+#container
+{
+    margin-top: 30px;
+    margin-bottom: 0px;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./static/signup-bg.jpg);
+    background-position: center;
+    background-size: cover;
+    /* position: absolute; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110vh;
+}
+
+#form-box
+{
+    width: 360px;
+    height: 520px;
+    position: relative;
+    /* margin: 8% auto; */
+    background-color: rgb(255, 255, 255, 0.8);
+    padding: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#button-box
+{
+    width: 232px;
+    margin: 35px auto;
+    position: relative;
+    background: linear-gradient(to right, rgb(85, 86, 92), rgb(145, 141, 155), rgb(38, 39, 43));
+    box-shadow: 5px 5px 10px 5px rgba(121, 118, 128, 0.3);
+    border-radius: 30px;
+}
+
+.toggle-button
+{
+    padding: 10px 30px;
+    cursor: pointer; 
+    color: white;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
+#btn
+{
+    top: 0%;
+    left: 0;
+    position: absolute;
+    width: 120px;
+    height: 100%;
+    background: linear-gradient(to bottom, rgb(37, 2, 134), rgb(64, 102, 184) 20%, rgb(37, 2, 134) 60%);
+    border-radius: 35px;
+    transition: 0.5s;
+}
+    
+.input-space
+{
+    top: 120px;
+    position: absolute;
+    width: 280px;
+    transition: 0.5s;
+}
+
+.input-field-login
+{
+    width: 100%;
+    padding: 10px 0px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: 13%;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 2px solid rgb(87, 82, 82);
+    background: transparent;
+    outline: none;
+}
+.input-field
+{
+    width: 100%;
+    padding: 10px 0px;
+    margin-top: 10px;
+    /* margin-bottom: 15px; */
+    margin-left: 13%;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 2px solid rgb(87, 82, 82);
+    background: transparent;
+    outline: none;
+}
+
+.submit-button
+{
+    width: 80%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin-left: 23%;
+    margin-top: 52px;
+    /* border: 2px solid red; */
+    color: rgb(255, 255, 255, 0.9);
+    background: linear-gradient(to right, rgb(37, 2, 134, 0.95), rgb(49, 90, 179, 0.95), rgb(37, 2, 134, 0.95));
+    outline: none;
+    border-radius: 30px;
+    transition: 0.5s;
+}
+
+.submit-button:hover
+{
+    width: 80%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin-left: 23%;
+    margin-top: 50px;
+    color: rgb(255, 255, 255, 0.9);
+    background: linear-gradient(to right, rgb(37, 2, 134), rgb(49, 90, 179), rgb(37, 2, 134));
+    outline: none;
+    border-radius: 30px;
+}
+
+.check-box
+{
+    position: absolute;
+    margin: 27px 10px 0px 2px;
+}
+
+#signup span
+{
+    color:rgba(68, 63, 63, 0.8);
+    font-size: 12px;
+    margin-top: 0px;
+    font-family: sans-serif;
+    left: 25px;
+    bottom: 37px;
+    position: absolute;
+    margin-bottom: 20px;
+}
+
+#acc
+{
+    color:rgba(68, 63, 63, 0.8);
+    font-size: 12px;
+    margin-top: 0px;
+    font-family: sans-serif;
+
+    left: 75px;
+    bottom: 35px;
+    position: absolute;
+    margin-bottom: 20px;
+
+}
+
+.su-button
+{
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: rgba(41, 27, 78, 0.8);
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 10px;
+    transition: 0.5s;
+}
+
+.su-button:hover
+{
+    box-shadow: 0 0 2px 2px rgba(105, 105, 107, 0.5);
+}
+
+#login
+{
+    left: 5px;
+}
+
+#signup
+{
+    left: 405px;
+}
+.check-box{
+    margin-left: 50px;
+}
+.read-terms{
+    margin-left: 43px;
+}

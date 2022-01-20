@@ -1,0 +1,186 @@
+.quote::before{
+    content: "\201c";
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    border-left-width: 7px;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-color: rgb(26, 17, 61);
+}
+
+.navbar-brand{
+    margin-left: 20px;
+    font-weight: 700;
+    /* border: 2px solid blue; */
+}
+.myNavBar{
+    display: flex;
+    justify-content: right;
+    width: 87vw;
+    padding: 0px 30px;
+    /* border: 2px solid red; */
+    /* margin: 0px !important; */
+}
+.myNavBar button:hover{
+    background-color: #0275d8;
+    color: white;
+}
+.myHomePage{
+    padding: 0 !important;
+    background-size:cover;
+    height: 120vh;
+}
+header img{
+    width: 100vw;
+    height: 120vh !important;
+    opacity: .5;
+    position: absolute;
+    background-size: cover !important;
+    z-index: -1;
+}
+.from-dean-desk{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 90px;
+    margin-top: 40px;
+}
+
+header{
+    height: 117vh !important;
+}
+.header-headings{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 40px;
+    text-align: center;
+}
+.myHome{
+    width: 90vw;
+    padding: 10px 25px;
+    height: 120vh;
+    /* position: static; */
+    text-align: justify;
+}
+.homePage{
+    margin: 0px;
+}
+.from-dean-desk{
+    /* border: 1px solid red; */
+    padding: 10px 160px;
+    font-size: 1.3rem;
+}
+.from-dean-desk blockquote{
+    text-align: center;
+}
+
+.myFooter{
+    color: white !important;
+}
+.copyright{
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+
+/* media queries============================= */
+@media (max-width:820px){
+    .header-headings h1{
+        font-size: 2.2rem !important;
+    }
+    .header-headings h4{
+        font-size: 1.2rem;
+    }
+    .from-dean-desk blockquote{
+        font-size: 1.2rem !important;
+        padding: 10px 10px;
+        margin-top: 5px;
+        text-align: center;
+    }
+    header img{
+        height: 120vh;
+    }
+    .from-dean-desk{
+        margin-top: 5px;
+        padding: 10px 50px;
+    }
+}
+@media (max-width:590px){
+    .header-headings h1{
+        font-size: 2rem !important;
+    }
+    .header-headings h4{
+        font-size: 1.1rem;
+    }
+    .from-dean-desk{
+        padding: 10px 40px;
+    }
+    .from-dean-desk h2{
+        font-size: 1.5rem;
+    }
+    .from-dean-desk blockquote{
+        font-size: 1.2rem !important;
+        padding: 0px 0px;
+    }
+    header img{
+        height: 120vh;
+    }
+}
+@media(max-width:400px){
+    .fa-quote-right{
+        font-size: 1.2rem;
+    }
+    .from-dean-desk{
+        margin-top: 20px;
+    }
+    .header-headings h1{
+        font-size: 1.75rem !important;
+    }
+    .header-headings h4{
+        font-size: 1rem;
+    }
+    .from-dean-desk blockquote{
+        font-size: 1rem !important;
+        padding: 0px 0px;
+    }
+}
+
+
+
+
+
+
+/* =================================== our rooms =================== */
+.container-fluid{
+    /* border: 3px solid blue; */
+    padding: 10px 20px;
+}
+.container-fluid p{
+    /* border: 2px solid red; */
+}
+.room-para{
+    /* margin-left: 20px; */
+    padding: 3px 10px;
+    letter-spacing: 1px;
+}
+
+.gap-80{
+    height: 80px;
+}
+.gap-60{
+    height: 60px;
+}

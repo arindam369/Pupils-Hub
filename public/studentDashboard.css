@@ -1,0 +1,585 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.dashboard-name{
+    font-size: 1.2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: inline-block;
+    padding: 8px 16px;
+    /* border: 1px solid red; */
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+.dashboard-container{
+    /* border: 1px solid red; */
+    display: flex;
+}
+.dashboard-bullet-box{
+    /* border: 2px solid green; */
+    flex-basis: 15%;
+    margin-right: 10px;
+    background: linear-gradient(to right,black,rgb(44, 44, 44),black);
+    padding: 18px 8px;
+    /* box-shadow: 7px 5px 10px 2px rgb(58, 58, 58); */
+    /* height: 520px; */
+    position: fixed;
+    line-height: 30px;
+    height: 94vh;
+    margin-top: 70px;
+}
+.dashboard-bullet-box li{
+    list-style: none;
+    font-size: .93rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    /* border: 1px solid red; */
+    color: rgb(238, 238, 238);
+    padding: 13px 20px;
+    border-radius: 9px;
+}
+.dashboard-bullet-box li a{
+    text-decoration: none;
+    color: white;
+}
+.dashboard-bullet-box li:hover{
+    color: rgb(0, 180, 0);
+    cursor: pointer;
+    background: rgb(68, 68, 68);
+}
+.dashboard-bullet-box li:hover a{
+    color: rgb(0, 180, 0);
+    cursor: pointer;   
+}
+.dashboard-bullet-box a{
+    text-decoration: none;
+}
+
+
+.dashboard-body{
+    /* border: 2px solid blue; */
+    flex-basis: 82%;
+    padding: 50px  0px;
+    /* box-shadow: 5px 5px 15px 2px rgb(58, 58, 58); */
+    /* margin-left: 10px; */
+    margin-left: 17vw;
+    margin-top: 70px;
+}
+.room-availability-box{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.single-room{
+    border: 1px solid blue;
+    background-color: orange;
+    margin-right: 100px;
+    width: 150px;
+    height: 120px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+.sharing-room{
+    border: 1px solid green;
+    background-color: green;
+    width: 150px;
+    height: 120px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+.roomType{
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.noOfRooms{
+    font-size: 1.7rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* admin profile ======================================= */
+.profile-container{
+
+}
+.profile-box{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.profile-image{
+
+}
+.profile-image img{
+    height: 170px;
+    width: 170px;
+    border-radius: 50%;
+}
+.profile-name{
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.profile-id{
+    text-align: center;
+    color: rgb(65, 65, 65);
+}
+
+.user-details-container{
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid red; */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.user-details-container .ques{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    margin-right: 10px;
+}
+.user-details-box,.address-blood-box{
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.user-details-box div{
+    width: 220px;
+    margin-right: 10px;
+}
+.address-box{
+    /* margin-top: 15px; */
+}
+
+/* settings & privacy ============================================= */
+.setting-container, .security-container{
+    padding: 10px 30px;
+}
+.setting-heading, .security-heading{
+    font-size: 1.35rem;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.security-heading{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.setting-box{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(5px, auto);
+}
+.setting-box input{
+    font-size: .9rem;
+}
+.setting-box button,.profile-update button{
+    background-color: #0275d8;
+    color: white;
+    padding: 7px 15px;
+    border-radius: 4px;
+    border: 1px solid black;
+    font-weight: 700;
+}
+.setting-box button:active{
+    transform: scale(.93);
+}
+.security-container{
+    margin-top: 50px;
+}
+.security-box form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.security-box form button{
+    padding: 7px 12px;
+    margin-top: 18px;
+    border-radius: 4px;
+    background-color: #0275d8;
+    color: white;
+    border: 1px solid rgb(99, 99, 99);
+}
+.security-box form button:active{
+    transform: scale(.93);
+}
+.security-box form div{
+    display: grid;
+    grid-template-columns: repeat(3, 220px);
+    gap: 10px;
+    grid-auto-rows: minmax(5px, auto);
+    margin-left: 20px;
+}
+.security-box input{
+    padding:4px 8px;
+}
+.setting-box form{
+    margin: 10px;
+}
+.profile-update{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.setting-box form input[type="text"]{
+    margin-right: 10px;
+    width: 225px;
+    padding: 3px 10px;
+}
+
+
+/* ============================help-support */
+.support-box{
+    display: flex;
+    justify-content: center;
+}
+.support-content{
+    /* border: 1px solid black; */
+    margin-bottom: 30px;
+    width: 850px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.harassed{
+    height: 300px;
+    width: 370px;
+    background: url("./static/bullying.jpg");
+    background-size: cover;
+    opacity: .6;
+    box-shadow: 4px 4px 10px 4px rgb(145, 145, 145),-4px -4px 10px 4px rgb(145, 145, 145);
+    /* border: 3px solid rgb(59, 59, 59); */
+    border-radius: 12px;
+}
+.harassed:hover,.cyberbullied:hover{
+    /* opacity: .7; */
+    transform: scale(1.01);
+    transition: 2s all;
+    cursor: pointer;
+
+}
+.cyberbullied{
+    height: 300px;
+    width: 340px;
+    background: url("./static/cyberbullying.png");
+    background-size: cover;
+    opacity: .6;
+    box-shadow: 4px 4px 10px 4px rgb(145, 145, 145),-4px -4px 10px 4px rgb(145, 145, 145);
+    /* border: 3px solid rgb(59, 59, 59); */
+    border-radius: 12px;
+}
+.harassed-text{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: fantasy;
+    text-shadow: 2px 4px rgb(238, 0, 0),-2px -4px black;
+    color: white;
+    /* border: 1px solid red; */
+    font-size: 1.9rem;
+    margin-top: 130px;
+    transform: rotate(-29deg);
+}
+.cyberbulled-text{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: fantasy;
+    text-shadow: 2px 4px black,-2px -4px rgb(173, 127, 0);
+    color: white;
+    /* border: 1px solid red; */
+    font-size: 2.1rem;
+    word-spacing: 12px;
+    margin-top: 100px;
+    margin-left: 70px;
+    transform: rotate(-28deg);
+}
+/* ================anti-ragging content ================= */
+.antiragging-container{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+}
+.antiragging-content{
+    width: 750px;
+    padding: 30px;
+    /* border: 1px solid blue; */
+    text-align:justify;
+}
+.antiragging-content p{
+    font-size: 1.1rem;
+}
+.antiragging-content a{
+    text-decoration: none;
+}
+
+
+/* ======================================contact-box */
+.contact-support-box{
+    /* border: 1px solid red; */
+    margin-top: 50px;
+}
+.contact-heading{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+.help-heading{
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+.contact-container{
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+
+
+}
+.contact-box{
+    /* border: 1px solid red; */
+    /* background-color: black; */
+    display: flex;
+    border-radius: 15px;
+    width: 800px;
+    padding: 20px 5px;
+}
+.contact-box img{
+    height: 300px;
+}
+
+.rightPart{
+    /* border: 1px solid red; */
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+}
+.rightPart label{
+    display: block;
+    /* border: 2px solid blue; */
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+.rightPart input{
+    width: 200px;
+    padding: 8px 8px;
+    margin-bottom: 13px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.rightPart textarea{
+    width: 200px;
+    resize: none;
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.contact-ques{
+    /* border: 2px solid green; */
+    width: 70px;
+    display: inline-block;
+    margin-right: 20px;
+    /* border: 1px solid red; */
+}
+.message-ques{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+.rightPart button{
+    margin-top: 15px;
+    margin-left: 75px;
+    padding: 7px 14px;
+    border-radius: 5px;
+    border: 1px solid rgb(49, 49, 49);
+    background-color: #0275d8;
+    color: white;
+}
+.rightPart button:active{
+    transform: scale(.93);
+}
+
+
+
+/* Hostel Application ===================================== */
+.application-heading{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 50px;
+}
+.application-form-container{
+    display: flex;
+    justify-content: center;
+}
+.application-form-container form .input-box{
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    gap: 40px 70px;
+    grid-auto-rows: minmax(5px, auto);
+    /* border: 1px solid red; */
+}
+.application-form-container form label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.application-form-container form input{
+    margin-top: 7px;
+    margin-bottom: -10px;
+    width: 210px;
+    padding: 7px 15px;
+    border-radius: 4px;
+    border: 2px solid rgb(163, 163, 163);
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.gender-box{
+    display: flex;
+    width: 320px;
+    /* border: 1px solid red; */
+}
+.gender-ques{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-right: 35px;
+    /* border: 1px solid blue; */
+    margin-top: 7px;
+}
+.genders{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: top;
+
+    /* border: 1px solid red; */
+    width: 340px;
+    height: 40px;
+}
+.gender-opt{
+    display: block !important;
+    width: 120px;
+    /* border: 1px solid blue; */
+}
+.input[type="radio"]{
+    display: inline-block;
+}
+
+#Male{
+    position: absolute;
+    left: 315px;
+    top: 776px;
+}
+#Female{
+    position: absolute;
+    left: 449px;
+    top: 776px;
+}
+#Others{
+    position: absolute;
+    left: 568px;
+    top: 776px;
+}
+
+.hostel-preference{
+    /* border: 1px solid red; */
+    margin-top: 25px;
+    padding: 10px 0px;
+}
+.select-hostel-type{
+    width: 80px;
+    height: 25px;
+    margin-left: 10px;
+    /* background-color: green; */
+    text-align: center;
+    /* color: white; */
+}
+.textarea-box{
+    /* border: 1px  solid red; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 900px;
+}
+.application-form-container textarea{
+    width: 700px;
+    resize: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    /* margin-top: 35px; */
+    margin-left: 60px;
+}
+
+.application-form-container .button-box{
+    /* border: 1px solid red; */
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.application-form-container .button-box button{
+    padding: 10px 15px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.button-box button:active{
+    transform: scale(.95);
+}
+.submit-form{
+    color: white;
+    background-color: #5cb85c;
+    margin-right: 10px;
+}
+.submit-form:hover{
+    background-color: #419741;
+    cursor: pointer;
+}
+.clear-form{
+    color: white;
+    background-color: #0275d8;
+}
+.clear-form:hover{
+    background-color: #005eb1;
+    cursor: pointer;
+}
+.fa-asterisk{
+    font-size: .4rem;
+    position: absolute;
+    color: #ff0000;
+}
+.application-form-container input{
+    border: 0px solid black !important;
+    border-bottom: 1px solid black !important;
+    border-radius: 0px !important;
+    outline: none;
+    margin-top: 13px !important;
+    padding: 5px 2px !important;
+}
+
+input::placeholder,textarea::placeholder{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+label{
+    /* border: 2px solid red; */
+    height: 100px;
+}
