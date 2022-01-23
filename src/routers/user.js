@@ -6,6 +6,8 @@ const User = require("../models/user");
 const auth = require("../middleware/auth");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const multer = require("multer");
+const res = require("express/lib/response");
 
 // app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -62,7 +64,7 @@ router.get("/users/:id", (req, res) => {
 router.patch("/users/:id", async (req, res) => {
 
     const updates = Object.keys(req.body);
-    const allowedUpdates = ["fullname","email","pass","mobileNo","gender","dp_image","college","dept","batch","bloodGroup","address"];
+    const allowedUpdates = ["fullname","pass","mobileNo","gender","college","dept","batch","bloodGroup","address"];
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update));
 
     if(!isValidOperation){
@@ -104,7 +106,7 @@ router.post("/users/login",async (req,res)=>{
     try{
         const authenticatedUser = await User.checkLoginCredentials(req.body.email,req.body.pass);
         const token = await authenticatedUser.generateAuthToken();
-        console.log({authenticatedUser,token});
+        // console.log({authenticatedUser,token});
         res.cookie("Pupils_Hub",token,{
             expires:new Date(Date.now() + 20000*60),
             httpOnly:true
@@ -117,6 +119,7 @@ router.post("/users/login",async (req,res)=>{
         res.status(400).send("Authentication Failed hai");
     }
 })
+
 
 // logOut user :
 router.get("/logout",auth, async (req,res)=>{
@@ -133,6 +136,80 @@ router.get("/logout",auth, async (req,res)=>{
         res.status(400).send(error);
     }
 })
+
+// upload avatar :
+const storage = multer.memoryStorage();
+const upload = multer({
+    // dest:"avatars",
+    limits: 1000000,
+    fileFilter(req,file,cb){
+        if(file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG)$/)){
+            cb(undefined,true);
+        }
+        else{
+            cb(new Error("Please upload only .jpg file"));
+            cb(undefined,false);
+        }
+    },storage
+});
+
+// here we are uploading avatar in our mongodb database
+router.post("/users/me/avatar", auth, upload.single("Avatar") ,async (req,res)=>{
+    req.user.avatar = req.file.buffer;
+    await req.user.save();
+    // res.send("Successfully uploaded your avatar");
+    res.redirect("/sDashboard");
+},(error,req,res,next)=>{
+    res.status(400).send({error: error.message});
+})
+// this "(error,req,res,next)" call signature tells express that the function is set up to handle any uncaught errors
+
+// here we are fetching avatar :
+router.get("/users/:id/avatar",auth,async (req,res)=>{
+    try{
+        const avatarUser = await User.findById(req.params.id);
+        if(!avatarUser || !avatarUser.avatar){
+            // throw new Error("No avatar found");
+            return 0;
+        }
+        res.set("Content-Type","image/jpg");
+        res.send(avatarUser.avatar);
+    }
+    catch(error){
+        res.status(404).send("No Avatar Found");
+    }
+})
+
+
+
+
+// check whether user is old user or not (authenticating email,pass)
+router.post("/users/isOldUser",async (req,res)=>{
+    try{
+        const isOldUser = await User.checkLoginCredentials(req.body.email,req.body.pass);
+        // const token = await authenticatedUser.generateAuthToken();
+        // console.log({authenticatedUser,token});
+        // res.cookie("Pupils_Hub",token,{
+        //     expires:new Date(Date.now() + 20000*60),
+        //     httpOnly:true
+        // });
+        // res.render("student/sProfile.ejs");
+        // res.redirect("/sDashboard");
+        console.log(isOldUser);
+        if(isOldUser){
+
+            return res.send(isOldUser);
+        }
+        res.status(400).send("Authentication failed");
+
+    }
+    catch(error){
+        res.status(400).send("Authentication Failed hai");
+    }
+})
+
+
+
 
 // console.log(User.countDocuments({fullname:"Arindam Halder"}));
 // User.findByIdAndUpdate("61eab8ebefa4005eefa0cfee",{fullname: "Nobita Nobi"}).then((result)=>{

@@ -26,8 +26,8 @@ const userSchema = new mongoose.Schema({
     address: {
         type: String
     },
-    dp_image: {
-        type: String
+    avatar: {
+        type: Buffer
     },
     college: {
         type: String

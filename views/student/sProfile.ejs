@@ -51,7 +51,7 @@
                     <div class="profile-container">
                         <div class="profile-box">
                             <div class="profile-image">
-                                <img src="./../static/user-dp.jpg" alt="image">
+                                <img src="./../static/user-dp.jpg" alt="image" id="avatar">
                             </div>
                         </div>
 
@@ -61,48 +61,48 @@
                     </div>
 
                     <div class="user-details-container">
+
+                        
+
                         <div class="user-details-box">
 
-                            <div class="gender-row">
-                                <span class="ques">Gender : </span>
-                                <span class="ans" id="mygender"> </span>
-                            </div>
-                            <div class="phone-row">
-                                <span class="ques">Phone No. : </span>
+                            <div>
+                                <span class="ques">Phone No.  </span>
                                 <span class="ans" id="mymobileNo"> </span>
                             </div>
-                            <div class="email-row">
-                                <span class="ques">Email : </span>
+                            <div>
+                                <span class="ques">Email  </span>
                                 <span class="ans" id="myemail"> </span>
                             </div>
-
-                        </div>
-                        <div class="user-details-box">
-
-                            <div class="gender-row">
-                                <span class="ques">College : </span>
-                                <span class="ans" id="mycollege"> </span>
+                            <div>
+                                <span class="ques">Gender  </span>
+                                <span class="ans" id="mygender"> </span>
                             </div>
-                            <div class="gender-row">
-                                <span class="ques">Dept : </span>
-                                <span class="ans" id="mydept"> </span>
-                            </div>
-                            <div class="phone-row">
-                                <span class="ques">Batch : </span>
-                                <span class="ans" id="mybatch"> </span>
-                            </div>
-
-                        </div>
-                        <div class="address-blood-box">
-                            <div class="email-row">
-                                <span class="ques">Blood Group : </span>
-                                <span class="ans" id="mybloodgroup"> </span>
-                            </div>
-                            <div class="address-box">
-                                <span class="ques">Address :</span>
+                            <div>
+                                <span class="ques">Address  </span>
                                 <span class="ans" id="myaddress"> </span>
                             </div>
+                            <div>
+                                <span class="ques">College  </span>
+                                <span class="ans" id="mycollege"> </span>
+                            </div>
+                            <div>
+                                <span class="ques">Dept </span>
+                                <span class="ans" id="mydept"> </span>
+                            </div>
+                            <div>
+                                <span class="ques">Batch </span>
+                                <span class="ans" id="mybatch"> </span>
+                            </div>
+                            <div>
+                                <span class="ques">Blood Group </span>
+                                <span class="ans" id="mybloodgroup"> </span>
+                            </div>
+                            
                         </div>
+
+
+
                     </div>
 
 
@@ -125,6 +125,7 @@
             //   console.log(error);
             // })
             // console.log("all users : ",allUserData);
+            const myAvatar = document.getElementById("avatar");
 
             const myFullName = document.getElementById("myfullname");
             const myId = document.getElementById("myid");
@@ -141,7 +142,7 @@
             const user = fetch("http://localhost:3000/users/me").then((res) => {
                 return res.json();
             }).then((user) => {
-                console.log(user);
+                // console.log(user);
 
                 if (user.fullname) { myFullName.innerHTML = user.fullname };
                 if (user._id) { myId.innerHTML = user._id };
@@ -155,10 +156,31 @@
                 if (user.bloodGroup) { myBloodGroup.innerHTML = user.bloodGroup };
                 if (user.address) { myAddress.innerHTML = user.address };
 
+
+                const avatarURL = fetch(`http://localhost:3000/users/${user._id}/avatar`).then((result) => {
+                    if(result){
+                        if(result.url){
+                            myAvatar.src = result.url;
+                        }
+                    }
+                    else{
+                        myAvatar.src = "./../static/user-dp.jpg";
+                    }
+                }).catch((error) => {
+                    console.log("Error occured");
+                    console.log(error);
+                })
+
+
             }).catch((error) => {
                 res.redirect("/login")
                 console.log(error);
             })
+
+
+
+
+            // console.log(avatarURL);
 
         </script>
 

@@ -6,8 +6,6 @@ const userRouter = require("./src/routers/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
-// const fetch = require("node-fetch");
-// const fetch = require("cross-fetch");
 const auth = require("./src/middleware/auth");
 const cookieParser = require("cookie-parser");
 

@@ -3,8 +3,8 @@
     <a class="navbar-brand" href="/">
       <img src="./../static/logo.png" alt="" height="40px" style="filter: invert(1);">
       <span class="logoname">
-      Pupils' Hub
-    </span></a>
+        Pupils' Hub
+      </span></a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,7 @@
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="/login"><button type="button"
                   class="btn btn-light" style=" margin-left: 10px;" id="loginButton">Log In</button></a>
             </li>
-            <li class="nav-item"><a class="nav-link active" aria-current="page"      ><button type="button"
+            <li class="nav-item"><a class="nav-link active" aria-current="page"><button type="button"
                   class="btn btn-light" style=" margin-left: 10px;" id="logoutButton">Log Out</button></a>
             </li>
 
@@ -59,6 +59,8 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
+  const loginButton = document.getElementById("loginButton");
+
   const logoutButton = document.getElementById("logoutButton");
 
   logoutButton.addEventListener("click", function () {
@@ -81,4 +83,23 @@
       }
     })
   })
+
+
+
+  // check whether user is logged in or not :
+  const isAuthenticated = fetch("http://localhost:3000/users/me").then((res) => {
+    return res.json();
+  }).then((user) => {
+    console.log({isLogged: 1});
+    // console.log(user.email);
+    loginButton.hidden = true;
+    logoutButton.hidden = false;
+
+  }).catch((error) => {
+    console.log({isLogged: 0});
+    loginButton.hidden = false;
+    logoutButton.hidden = true;
+  });
+
+
 </script>
