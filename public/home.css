@@ -1,7 +1,20 @@
 .quote::before{
     content: "\201c";
 }
-
+.navbar-brand{
+    font-size: 1.6rem;
+    /* border: 1px solid red; */
+    display: flex;
+}
+.navbar-brand img{
+    /* border: 1px solid blue; */
+}
+.logoname{
+    /* border: 1px solid red; */
+    margin-top: 9px;
+    margin-left: 8px;
+    display: inline-block;
+}
 .card {
     position: relative;
     display: flex;
