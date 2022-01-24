@@ -43,30 +43,29 @@
 
                 <div class="dashboard-body">
 
-
-
                     <div class="setting-container">
                         <div class="setting-heading">Settings & Privacy</div>
                         <div class="profile-update">
-                            <form action="">
-                                <input type="file">
+                            <form action="/admins/me/avatar" method="post" enctype="multipart/form-data"
+                                id="uploadAvatar">
+                                <input type="file" name="Avatar">
                                 <button type="submit">Upload</button>
                             </form>
                         </div>
                         <div class="setting-box">
-                            <form action="">
-                                <input type="text" placeholder="Update your Name">
+                            <form action="" id="updateName">
+                                <input type="text" placeholder="Update your Name" name="fullname">
                                 <button type="submit">Update</button>
                             </form>
-                            <form action="">
-                                <input type="text" placeholder="Update your Phone No.">
+                            <form action="" id="updateMobileNo">
+                                <input type="text" placeholder="Update your Mobile No.">
                                 <button type="submit">Update</button>
                             </form>
-                            <form action="">
-                                <input type="text" placeholder="Update your Email">
+                            <form action="" id="updateGender">
+                                <input type="text" placeholder="Update your Gender">
                                 <button type="submit">Update</button>
                             </form>
-                            <form action="">
+                            <form action="" id="updateAddress">
                                 <input type="text" placeholder="Update your Address">
                                 <button type="submit">Update</button>
                             </form>
@@ -74,11 +73,12 @@
                     </div>
 
 
+
                     <div class="security-container">
                         <div class="security-heading">Wanna Change your Password ?</div>
 
                         <div class="security-box">
-                            <form action="">
+                            <form action="" id="updatePassword">
                                 <div class="inputs">
                                     <input type="password" placeholder="Enter Old Password">
 
@@ -93,6 +93,8 @@
 
 
 
+
+
                 </div>
 
         </div>
@@ -100,6 +102,241 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
+
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+            <script>
+                const uploadAvatarForm = document.getElementById("uploadAvatar");
+
+                const updateNameForm = document.getElementById("updateName");
+                const updateMobileNoForm = document.getElementById("updateMobileNo");
+                const updateGenderForm = document.getElementById("updateGender");
+                const updateAddressForm = document.getElementById("updateAddress");
+
+                const updatePasswordForm = document.getElementById("updatePassword");
+
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                uploadAvatarForm.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    // console.log(e);
+                    if (e.srcElement[0].value === '') {
+                        return Toast.fire({
+                            icon: 'error',
+                            title: 'Select an image first'
+                        })
+                    }
+                    if(!e.srcElement[0].value.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG)$/)){
+                        return Toast.fire({
+                            icon: 'error',
+                            title: 'Sorry, only JPG/JPEG/PNG files are allowed to upload'
+                        })
+                    }
+
+                    uploadAvatarForm.submit();
+                })
+
+
+
+                const admin = fetch("http://localhost:3000/admins/me").then((res) => {
+                    return res.json();
+                }).then((admin) => {
+
+                    const patchURL = `http://localhost:3000/admins/${admin._id}`;
+
+
+                    updateNameForm.addEventListener("submit", (e) => {
+                        e.preventDefault();
+                        const updatedName = e.srcElement[0].value;
+                        if (updatedName === '') {
+                            return Toast.fire({
+                                icon: 'error',
+                                title: 'Write Something to update'
+                            })
+                        }
+
+                        const updatedAdmin_name = fetch(patchURL, {
+                            method: "PATCH",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ "fullname": updatedName })
+                        }).then(res => res.json())
+                            .then((data) => {
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: 'Updated successfully'
+                                })
+                                updateNameForm.reset();
+                            }).catch((err) => {
+                                console.log(err);
+                            })
+                    })
+                    updateMobileNoForm.addEventListener("submit", (e) => {
+                        e.preventDefault();
+                        const updatedMobileNo = e.srcElement[0].value;
+                        if (updatedMobileNo === '') {
+                            return Toast.fire({
+                                icon: 'error',
+                                title: 'Write Something to update'
+                            })
+                        }
+
+                        const updatedAdmin_mobileNo = fetch(patchURL, {
+                            method: "PATCH",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ "mobileNo": updatedMobileNo })
+                        }).then(res => res.json())
+                            .then((data) => {
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: 'Updated successfully'
+                                })
+                                updateMobileNoForm.reset();
+                            }).catch((err) => {
+                                console.log(err);
+                            })
+
+                    })
+                    updateGenderForm.addEventListener("submit", (e) => {
+                        e.preventDefault();
+                        const updatedGender = e.srcElement[0].value;
+                        if (updatedGender === '') {
+                            return Toast.fire({
+                                icon: 'error',
+                                title: 'Write Something to update'
+                            })
+                        }
+
+                        const updatedAdmin_gender = fetch(patchURL, {
+                            method: "PATCH",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ "gender": updatedGender })
+                        }).then(res => res.json())
+                            .then((data) => {
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: 'Updated successfully'
+                                })
+                                updateGenderForm.reset();
+                            }).catch((err) => {
+                                console.log(err);
+                            })
+                    })
+                    updateAddressForm.addEventListener("submit", (e) => {
+                        e.preventDefault();
+                        const updatedAddress = e.srcElement[0].value;
+                        if (updatedAddress === '') {
+                            return Toast.fire({
+                                icon: 'error',
+                                title: 'Write Something to update'
+                            })
+                        }
+
+                        const updatedAdmin_address = fetch(patchURL, {
+                            method: "PATCH",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ "address": updatedAddress })
+                        }).then(res => res.json())
+                            .then((data) => {
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: 'Updated successfully'
+                                })
+                                updateAddressForm.reset();
+                            }).catch((err) => {
+                                console.log(err);
+                            })
+                    })
+
+
+                    updatePasswordForm.addEventListener("submit", (e) => {
+                        e.preventDefault();
+                        const oldPass = e.srcElement[0].value;
+                        const newPass = e.srcElement[1].value;
+                        const confirmPass = e.srcElement[2].value;
+                        if (oldPass === '' || newPass === '' || confirmPass === '') {
+                            return Toast.fire({
+                                icon: 'error',
+                                title: 'Please fill all fields'
+                            })
+                        }
+                        // console.log(oldPass);
+                        // console.log(newPass);
+                        // console.log(confirmPass);
+                        if (newPass !== confirmPass) {
+                            updatePasswordForm.reset();
+                            return Toast.fire({
+                                icon: 'error',
+                                title: "Confirm password doesn't match"
+                            })
+                        }
+                        if (!newPass.match(/[a-z]/g) || !newPass.match(/[A-Z]/g) || !newPass.match(/[0-9]/g) || !newPass.match(/[^a-zA-Z\d]/g) || !newPass.length >= 6) {
+                            updatePasswordForm.reset();
+                            return Toast.fire({
+                                icon: 'error',
+                                title: 'Password should contain: \n  atleast 1 lowercase \n   atleast 1 uppercase \n   atleast 1 number \n   atleast 1 special character \n    min length: 6'
+                            })
+                        }
+
+                        const isThisOldAdmin = fetch("http://localhost:3000/admins/isOldAdmin", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ "email": admin.email, "pass": oldPass })
+                        }).then((res) => {
+                            return res.json();
+                        }).then((data) => {
+                            // console.log(data);
+
+                            const updatedAdmin_pass = fetch(patchURL, {
+                                method: "PATCH",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify({ "pass": newPass })
+                            }).then(res => res.json())
+                                .then((data) => {
+                                    updatePasswordForm.reset();
+                                    Toast.fire({
+                                        icon: 'success',
+                                        title: 'Updated successfully'
+                                    })
+                                }).catch((err) => {
+                                    console.log(err);
+                                })
+                        }).catch((error) => {
+                            updatePasswordForm.reset();
+                            return Toast.fire({
+                                icon: 'error',
+                                title: "Incorrect password"
+                            })
+                        })
+                    })
+                }).catch((error) => {
+                    console.log(error);
+                })
+
+            </script>
+
+        
 
 </body>
 

@@ -36,8 +36,8 @@
 
         <!-- signup - login ================================================================ -->
 
-        <div id="container">
-            <div id="form-box">
+        <div id="container" style=" margin-top: 50px; flex-direction: column;">
+            <div id="form-box" style="margin-bottom: 20px;">
                 <div id="button-box">
                     <div id="btn"></div>
                     <button type="button" class="toggle-button" onclick="login()">Log In</button>
@@ -74,6 +74,10 @@
                     </div>
                     <button type="submit" class="submit-button" id="signupButton">Sign Up</button>
                 </form>
+            </div>
+            <div class="admin-container">
+                <p class="admin-text">Are you an Admin?</p>
+                <a href="/aDashboard"> <span class="clickHere"> Click Here </span></a>
             </div>
         </div>
 
@@ -158,7 +162,7 @@
                         })
                         return false;
                     }
-                    else if (pass.match(/[a-z]/g) &&pass.match(/[A-Z]/g) && pass.match(/[0-9]/g) && pass.match(/[^a-zA-Z\d]/g) && pass.length >= 6 ){
+                    else if (pass.match(/[a-z]/g) && pass.match(/[A-Z]/g) && pass.match(/[0-9]/g) && pass.match(/[^a-zA-Z\d]/g) && pass.length >= 6) {
                         Toast.fire({
                             icon: 'success',
                             title: 'Signed up successfully'

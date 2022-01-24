@@ -11,7 +11,7 @@ body{
     border-radius: 10px;
     /* border: 1px solid red; */
     /* position: fixed; */
-    margin-bottom: 60px;
+    margin-bottom: 15px;
     margin-top: 30px;
 }
 .dashboard-container{
@@ -20,7 +20,7 @@ body{
     /* position: fixed; */
 }
 .dashboard-bullet-box{
-    border: 2px solid green;
+    /* border: 2px solid green; */
     flex-basis: 15%;
     margin-right: 10px;
     /* border-radius: 18px; */
@@ -240,16 +240,10 @@ body{
 
 
 /* admin profile ======================================= */
-.profile-container{
-
-}
 .profile-box{
     display: flex;
     justify-content: center;
     margin-top: 20px;
-}
-.profile-image{
-
 }
 .profile-image img{
     height: 170px;
@@ -281,14 +275,19 @@ body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 700;
     margin-right: 10px;
+    /* border: 2px solid red; */
+    display: inline-block;
+    width: 90px;
 }
 .user-details-box{
     /* border: 2px solid red; */
-    width: 600px;
+    width: 800px;
     padding: 10px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px 5px;
     margin-top: 20px;
+    padding: 2px 20px;
 }
 
 /* settings & privacy ============================================= */
@@ -382,4 +381,112 @@ body{
 }
 .setting-box form{
     margin: 10px;
+}
+
+
+/* Pending applicatons ============================ */
+.pending-heading{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 20px;
+}
+.pending-details-container{
+    /* border: 1px solid red; */
+    /* height: 100vh; */
+    padding: 20px 40px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 60px 10px;
+}
+.pending-details-card{
+    /* border: 1px solid blue; */
+    height: 200px;
+    width: 385px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 20px 1px rgb(155, 155, 155);
+    padding: 10px 16px;
+    color: rgb(87, 87, 87);
+
+}
+.card-button-box{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+.hostelNoButtons{
+    color: #0275d8;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.hostelNoButtons span{
+    margin: 0px 6px;
+}
+.fa-envelope{
+    font-size: 1.4rem;
+    color: brown;
+    cursor: pointer;
+}
+.fa-envelope:active{
+    transform: scale(.92);
+}
+.del-trash{
+    font-size: 1.35rem;
+}
+
+/* Create Admin ============================================ */
+.admin-create-container{
+    /* border: 1px solid red; */
+    /* height: 100vh; */
+    display: flex;
+    justify-content: center;
+}
+.admin-signup-box{
+    /* border: 1px solid red; */
+    width: 450px;
+    background-color: #f7f7f7;
+    padding: 30px 2px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 16px 1px rgb(214, 214, 214),-1px -1px 16px 1px rgb(214, 214, 214);
+}
+.image-box{
+    /* border: 1px solid blue; */
+    text-align: center;
+    margin-bottom: 40px;
+}
+.image-box img{
+    height: 170px;
+    border-radius: 50%;
+}
+.form-box form{
+    display: flex;
+    flex-direction: column;
+}
+.form-box form input{
+    padding: 5px 10px;
+    margin: 4px 60px;
+    border-radius: 3px;
+    border: 1px solid black;
+}
+.form-box form input::placeholder{
+    color: rgb(179, 179, 179);
+}
+.form-box form button{
+    background-color: #0275d8;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 3px;
+    margin: 20px 60px;
+}
+.form-box form button:hover{
+    background-color: #0559a3;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[type=number] {
+    -moz-appearance:textfield;
 }

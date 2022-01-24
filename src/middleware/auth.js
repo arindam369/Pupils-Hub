@@ -7,9 +7,9 @@ const auth = async (req, res, next) => {
     try {
         // const token = req.header("Authorization").replace("Bearer", "").trim();
         const token = req.cookies.Pupils_Hub;
-        console.log(`browser generated token : ${token}`);
+        // console.log(`browser generated token : ${token}`);
         const decoded = jwt.verify(token, SECRET);
-        console.log(decoded);
+        // console.log(decoded);
 
         const authUser = await User.findOne({ _id: decoded._id, "tokens.token": token });
         if (!authUser) {

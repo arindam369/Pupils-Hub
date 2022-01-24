@@ -101,7 +101,6 @@ router.delete("/users/:id",async (req,res)=>{
 })
 
 // login a user ==================================
-
 router.post("/users/login",async (req,res)=>{
     try{
         const authenticatedUser = await User.checkLoginCredentials(req.body.email,req.body.pass);

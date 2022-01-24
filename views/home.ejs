@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
     integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  
+
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,44 +26,73 @@
   <link rel="stylesheet" href="./home.css">
 
 </head>
+
 <body>
 
   <!-- navBar ========================================================================== -->
 
   <%- include('../partials/navBar') %>
 
-  <!-- introPage ======================================================================== -->
-  <%- include('../partials/introPage') %>
-  
-  <!-- rooms ======================================================================== -->
-  <%- include('../partials/rooms') %>
-  
-  <!-- feedback ======================================================================== -->
-  <%- include('../partials/feedback') %>
-  
-  <!-- benefits ======================================================================== -->
-  <%- include('../partials/benefits') %>
-  
-  <!-- contact us ======================================================================== -->
-  <%- include('../partials/contact') %>
-  
-  <!-- footer ======================================================================== -->
-  <%- include('../partials/footer') %>
+    <!-- introPage ======================================================================== -->
+    <%- include('../partials/introPage') %>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+      <!-- rooms ======================================================================== -->
+      <%- include('../partials/rooms') %>
 
-  <script>
-    // const allUserData = fetch("http://localhost:3000/users").then((user)=>{
-    //   console.log("all users : ");
-    //   console.log(user);
-    // }).catch((error)=>{
-    //   console.log(error);
-    // })
+        <!-- feedback ======================================================================== -->
+        <%- include('../partials/feedback') %>
 
-    // console.log("all users : ",allUserData);
-  </script>
+          <!-- benefits ======================================================================== -->
+          <%- include('../partials/benefits') %>
+
+            <!-- contact us ======================================================================== -->
+            <%- include('../partials/contact') %>
+
+              <!-- footer ======================================================================== -->
+              <%- include('../partials/footer') %>
+
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                  crossorigin="anonymous"></script>
+
+                <script>
+                  // const allUserData = fetch("http://localhost:3000/users").then((user)=>{
+                  //   console.log("all users : ");
+                  //   console.log(user);
+                  // }).catch((error)=>{
+                  //   console.log(error);
+                  // })
+
+                  // console.log("all users : ",allUserData);
+
+                  document.getElementById('form').addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    const name = document.getElementById('name').value;
+                    const number = document.getElementById('number').value;
+                    const email = document.getElementById('email').value;
+                    const query = document.getElementById('query').value;
+
+                    const data = {
+                      name, number, email, query
+                    }
+
+                    const url = '/email';
+                    const Params = {
+                      headers: {
+                        "content-type": "application/json; charset=UTF-8"
+                      },
+                      body: JSON.stringify(data),
+                      method: "POST"
+                    }
+                    fetch(url, Params)
+                      .then(data => { return data.json() })
+                      .then(res => { console.log(res) })
+                      .catch(err => { console.log(err) })
+                  })
+
+
+                </script>
 
 </body>
+
 </html>

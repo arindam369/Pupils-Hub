@@ -109,16 +109,10 @@ body{
 
 
 /* admin profile ======================================= */
-.profile-container{
-
-}
 .profile-box{
     display: flex;
     justify-content: center;
     margin-top: 20px;
-}
-.profile-image{
-
 }
 .profile-image img{
     height: 170px;

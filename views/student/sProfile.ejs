@@ -154,7 +154,6 @@
                 if (user.dept) { myDept.innerHTML = user.dept };
                 if (user.batch) { myBatch.innerHTML = user.batch };
                 if (user.bloodGroup) { myBloodGroup.innerHTML = user.bloodGroup };
-                if (user.address) { myAddress.innerHTML = user.address };
 
 
                 const avatarURL = fetch(`http://localhost:3000/users/${user._id}/avatar`).then((result) => {

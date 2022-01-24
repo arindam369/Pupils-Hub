@@ -63,6 +63,16 @@ body
     border-radius: 35px;
     transition: 0.5s;
 }
+.admin-text{
+    display: inline-block;
+    color: white;
+}
+.admin-container a{
+    text-decoration: none;
+}
+.clickHere{
+    color: rgb(255, 238, 0);
+}
     
 .input-space
 {

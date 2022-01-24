@@ -51,35 +51,33 @@
             <div class="profile-container">
                 <div class="profile-box">
                     <div class="profile-image">
-                        <img src="./static/admin-dp.jpg" alt="">
+                        <img src="./static/user-dp.jpg" alt="" id="a_avatar">
                     </div>
                 </div>
 
-                <div class="profile-name">Naruto Uzumaki</div>
-                <div class="profile-id">9987cabd3456ghij</div>
+                <div class="profile-name" id="a_fullname"> </div>
+                <div class="profile-id" id="a_id"> </div>
 
             </div>
 
             <div class="user-details-container">
                 <div class="user-details-box">
-
                     <div class="gender-row">
                         <span class="ques">Gender : </span>
-                        <span class="ans">Male</span>
+                        <span class="ans" id="a_gender"> </span>
                     </div>
                     <div class="phone-row">
                         <span class="ques">Phone No. : </span>
-                        <span class="ans">1234567890</span>
+                        <span class="ans" id="a_mobileNo"> </span>
                     </div>
                     <div class="email-row">
                         <span class="ques">Email : </span>
-                        <span class="ans">abc@gmail.com</span>
+                        <span class="ans" id="a_email"> </span>
                     </div>
-
-                </div>
-                <div class="address-box">
-                    <span class="ques">Address :</span>
-                    <span class="ans">Andheri Road, Mumbai</span>
+                    <div class="address-box">
+                        <span class="ques">Address :</span>
+                        <span class="ans" id="a_address"> </span>
+                    </div>
                 </div>
             </div>
             </div>
@@ -95,6 +93,64 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
 
-</body>
+            <script>
 
+                //     const allUserData = fetch("http://localhost:3000/users").then((user)=>{
+                //   console.log("all users : ");
+                //   console.log(user);
+                // }).catch((error)=>{
+                //   console.log(error);
+                // })
+                // console.log("all users : ",allUserData);
+                const adminAvatar = document.getElementById("a_avatar");
+    
+                const adminFullName = document.getElementById("a_fullname");
+                const adminId = document.getElementById("a_id");
+                const adminGender = document.getElementById("a_gender");
+                const adminMobileNo = document.getElementById("a_mobileNo");
+                const adminEmail = document.getElementById("a_email");
+                const adminAddress = document.getElementById("a_address");
+    
+    
+                const admin = fetch("http://localhost:3000/admins/me").then((res) => {
+                    return res.json();
+                }).then((admin) => {
+                    // console.log(user);
+    
+                    if (admin.fullname) { adminFullName.innerHTML = admin.fullname };
+                    if (admin._id) { adminId.innerHTML = admin._id };
+                    if (admin.gender) { adminGender.innerHTML = admin.gender };
+                    if (admin.mobileNo) { adminMobileNo.innerHTML = admin.mobileNo };
+                    if (admin.email) { adminEmail.innerHTML = admin.email };
+                    if (admin.address) { adminAddress.innerHTML = admin.address };
+                    
+    
+                    const avatarURL = fetch(`http://localhost:3000/admins/${admin._id}/avatar`).then((result) => {
+                        if(result){
+                            if(result.url){
+                                adminAvatar.src = result.url;
+                            }
+                        }
+                        else{
+                            adminAvatar.src = "./static/user-dp.jpg";
+                        }
+                    }).catch((error) => {
+                        console.log("Error occured");
+                        console.log(error);
+                    })
+    
+    
+                }).catch((error) => {
+                    res.redirect("/aLogin")
+                    console.log(error);
+                })
+
+            </script>
+
+
+
+
+
+
+</body>
 </html>

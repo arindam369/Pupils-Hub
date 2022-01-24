@@ -3,6 +3,7 @@ const app = express();
 const router = new express.Router();
 const Applicant = require("../models/applicant");
 const bodyParser = require("body-parser");
+const adminAuth = require("../middleware/adminAuth");
 
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -25,7 +26,7 @@ router.post("/applicants", (req, res) => {
 })
 
 // reading all applicant's data ===========================
-router.get("/applicants", (req, res) => {
+router.get("/applicants",adminAuth, (req, res) => {
     Applicant.find({}).then((result) => {
         console.log("All Applicants : ", result);
         res.send(result);
