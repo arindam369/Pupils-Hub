@@ -3,6 +3,7 @@ const app = express();
 require("./src/db/mongoose");
 const User = require("./src/models/user");
 const userRouter = require("./src/routers/user");
+const applicantRouter = require("./src/routers/applicant");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
@@ -56,8 +57,30 @@ app.get("/sSettings", (req, res) => {
 
 
 
+app.get("/aDashboard",(req,res)=>{
+    res.render("admin/aProfile");
+})
+app.get("/aPending",(req,res)=>{
+    res.render("admin/aPending");
+})
+app.get("/aHostel1",(req,res)=>{
+    res.render("admin/Hostel1");
+})
+app.get("/aHostel2",(req,res)=>{
+    res.render("admin/Hostel2");
+})
+app.get("/aHostel3",(req,res)=>{
+    res.render("admin/Hostel3");
+})
+app.get("/aSettings",(req,res)=>{
+    res.render("admin/aSettings");
+})
+
+
+
 
 app.listen(port, () => {
     console.log("Server is running on port:3000");
 })
 app.use(userRouter);
+app.use(applicantRouter);

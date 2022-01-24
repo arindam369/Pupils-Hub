@@ -9,8 +9,8 @@
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <link rel="stylesheet" href="./home.css">
 
 
@@ -25,116 +25,212 @@
 
 
 
-    <div class="dashboard-container">
+        <div class="dashboard-container">
 
-        <!-- Student Dashboard Bullets ======================== -->
-        <%- include('sBullets') %>
+            <!-- Student Dashboard Bullets ======================== -->
+            <%- include('sBullets') %>
 
-        <!-- Student Dashboard Body ==========================-->
-        <div class="dashboard-body">
+                <!-- Student Dashboard Body ==========================-->
+                <div class="dashboard-body">
 
-            <div class="application-heading">Hostel Application Form</div>
+                    <div class="application-heading">Hostel Application Form</div>
 
-            <div class="application-form-container">
-                <form action="">
-                    <div class="input-box">
-                        <label for="name">
-                            Name <i class="fas fa-asterisk"></i> <input type="text" placeholder="Enter your name" required>
-                        </label>
-                        <label for="email">
-                            Email <i class="fas fa-asterisk"></i> <input type="email" placeholder="Enter your email" required>
-                        </label>
-                        <label for="mobileNo">
-                            Mobile No. <i class="fas fa-asterisk"></i> <input type="number" placeholder="Enter your mobile no." required>
-                        </label>
-                        <label for="name">
-                            Father's Name <i class="fas fa-asterisk"></i> <input type="text" placeholder="Enter your father's name" required>
-                        </label>
-                        <label for="email">
-                            Mother's Name <i class="fas fa-asterisk"></i> <input type="text" placeholder="Enter your mother's name" required>
-                        </label>
-                        <label for="mobileNo">
-                            Guardian's Mobile No. <i class="fas fa-asterisk"></i> <input type="number" placeholder="Enter guardian's mobile mo." required>
-                        </label>
-                        <label for="address">
-                            Date Of Birth <i class="fas fa-asterisk"></i> <input type="text" placeholder="Enter your DOB" required>
-                        </label>
-                        <label for="address">
-                            Address <i class="fas fa-asterisk"></i> <input type="text" placeholder="Where do you live?" required>
-                        </label>
-                        <label for="address">
-                            Blood Group<i class="fas fa-asterisk"></i> <input type="text" placeholder="What's your Blood Group?" required>
-                        </label>
-                        <label for="dept">
-                            College <i class="fas fa-asterisk"></i> <input type="text" placeholder="Enter your college name" required>
-                        </label>
-                        <label for="dept">
-                            Dept <i class="fas fa-asterisk"></i> <br> <input type="text" placeholder="What's your dept?" required>
-                        </label>
-                        <label for="batch">
-                            Batch <i class="fas fa-asterisk"></i> <input type="text" placeholder="Enter your batch year" required>
-                        </label>
+                    <div class="application-form-container">
+                        <form action="" id="application-form">
+                            <div class="input-box">
+                                <label for="name">
+                                    Name <i class="fas fa-asterisk"></i> <input type="text"
+                                        placeholder="Enter your name" required name="fullname">
+                                </label>
+                                <label for="email">
+                                    Email <i class="fas fa-asterisk"></i> <input type="email"
+                                        placeholder="Enter your email" required name="email">
+                                </label>
+                                <label for="mobileNo">
+                                    Mobile No. <i class="fas fa-asterisk"></i> <input type="number"
+                                        placeholder="Enter your mobile no." required name="mobileNo">
+                                </label>
+                                <label for="father's name">
+                                    Father's Name <i class="fas fa-asterisk"></i> <input type="text"
+                                        placeholder="Enter your father's name" required name="fatherName">
+                                </label>
+                                <label for="mother's name">
+                                    Mother's Name <i class="fas fa-asterisk"></i> <input type="text"
+                                        placeholder="Enter your mother's name" required name="motherName">
+                                </label>
+                                <label for="guardian No">
+                                    Guardian's Mobile No. <i class="fas fa-asterisk"></i> <input type="number"
+                                        placeholder="Enter guardian's mobile no." required name="guardianNo">
+                                </label>
+                                <label for="DOB">
+                                    Date Of Birth <i class="fas fa-asterisk"></i> <input type="text"
+                                        placeholder="Enter your DOB" required name="DOB">
+                                </label>
+                                <label for="address">
+                                    Address <i class="fas fa-asterisk"></i> <input type="text"
+                                        placeholder="Where do you live?" required name="adddress">
+                                </label>
+                                <label for="address">
+                                    Blood Group<i class="fas fa-asterisk"></i> <input type="text"
+                                        placeholder="What's your Blood Group?" required name="bloodGroup">
+                                </label>
+                                <label for="college">
+                                    College <i class="fas fa-asterisk"></i> <input type="text"
+                                        placeholder="Enter your college name" required name="college">
+                                </label>
+                                <label for="dept">
+                                    Dept <i class="fas fa-asterisk"></i> <br> <input type="text"
+                                        placeholder="What's your dept?" required name="dept">
+                                </label>
+                                <label for="batch">
+                                    Batch <i class="fas fa-asterisk"></i> <input type="text"
+                                        placeholder="Enter your batch year" required name="batch">
+                                </label>
 
-                        <div class="gender-box">
-                            <div class="gender-ques">Gender<i class="fas fa-asterisk"></i></div>
+                                <div class="gender-box">
+                                    <div class="gender-ques">Gender<i class="fas fa-asterisk"></i></div>
 
-                            <div class="genders">
-                                <span class="gender-opt"> Male </span>
-                                <input type="radio" name="gender" id="Male" required>
+                                    <div class="genders">
+                                        <span class="gender-opt"> Male </span>
+                                        <input type="radio" name="gender" value="Male" id="Male" required>
+                                    </div>
+                                    <div class="genders">
+                                        <span class="gender-opt"> Female </span>
+                                        <input type="radio" name="gender" value="Female" id="Female" required>
+                                    </div>
+                                    <div class="genders">
+                                        <span class="gender-opt"> Others </span>
+                                        <input type="radio" name="gender" value="Others" id="Others" required>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="genders">
-                                <span class="gender-opt"> Female </span>
-                                <input type="radio" name="gender" id="Female" required>
-                            </div>
-                            <div class="genders">
-                                <span class="gender-opt"> Others </span>
-                                <input type="radio" name="gender" id="Others" required>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="hostel-preference">
-                        <div class="preference-box">
-                            <label for="hostel-type" class="hostel-type">
-                                What Type of Hostel Room you want to take ?<i class="fas fa-asterisk"></i>
-                                <select name="cars" id="cars" class="select-hostel-type" required>
-                                    <option value="single">Single</option>
-                                    <option value="sharing">Sharing</option>
-                                </select>
-                            </label>
-                            <!-- <br> -->
-                            <!-- <label for="hostel-choices" class="hostel-choices">
+                            <div class="hostel-preference">
+                                <div class="preference-box">
+                                    <label for="hostel-type" class="hostel-type">
+                                        What Type of Hostel Room you want to take ?<i class="fas fa-asterisk"></i>
+                                        <select name="cars" id="cars" class="select-hostel-type" required>
+                                            <option name="roomType" value="single">Single</option>
+                                            <option name="roomType" value="sharing">Sharing</option>
+                                        </select>
+                                    </label>
+                                    <!-- <br> -->
+                                    <!-- <label for="hostel-choices" class="hostel-choices">
                                 <input type="text" placeholder="Enter 1st Choice (Room ID)">
                                 <input type="text" placeholder="Enter 2nd Choice (Room ID)">
                                 <input type="text" placeholder="Enter 3rd Choice (Room ID)">
                             </label> -->
-                        </div>
+                                </div>
+                            </div>
+
+                            <div class="textarea-box">
+                                <p>Is there anything special you want to tell us ?</p>
+                                <textarea name="" id="" cols="30" rows="5" placeholder="Write your message here"
+                                    name="message"></textarea>
+                            </div>
+
+                            <div class="button-box">
+                                <button type="submit" class="submit-form">Submit Form</button>
+                                <button type="reset" class="clear-form">Clear Form</button>
+                            </div>
+
+
+                        </form>
+
                     </div>
 
-                    <div class="textarea-box">
-                        <p>Is there anything special you want to tell us ?</p>
-                        <textarea name="" id="" cols="30" rows="5"
-                            placeholder="Write your message here"></textarea>
-                    </div>
-
-                    <div class="button-box">
-                        <button type="submit" class="submit-form">Submit Form</button>
-                        <button type="reset" class="clear-form">Clear Form</button>
-                    </div>
-
-
-                </form>
-
-            </div>
+                </div>
 
         </div>
 
-    </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+        <script>
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+
+
+
+            const applicationForm = document.getElementById("application-form");
+
+            applicationForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const gender_male = e.srcElement[12].checked;
+                const gender_female = e.srcElement[13].checked;
+                const gender_others = e.srcElement[14].checked;
+                let gender;
+                if (gender_male) {
+                    gender = e.srcElement[12].value;
+                }
+                else if (gender_female) {
+                    gender = e.srcElement.value;
+                }
+                else {
+                    gender = e.srcElement.value;
+                }
+
+                const applicantData = {
+                    "fullname": e.srcElement[0].value,
+                    "email": e.srcElement[1].value,
+                    "mobileNo": e.srcElement[2].value,
+                    "fatherName": e.srcElement[3].value,
+                    "motherName": e.srcElement[4].value,
+                    "guardianNo": e.srcElement[5].value,
+                    "DOB": e.srcElement[6].value,
+                    "address": e.srcElement[7].value,
+                    "bloodGroup": e.srcElement[8].value,
+                    "college": e.srcElement[9].value,
+                    "dept": e.srcElement[10].value,
+                    "batch": e.srcElement[11].value,
+                    "gender": gender,
+                    "roomType": e.srcElement[15].value,
+                    "message": e.srcElement[16].value,
+                }
+
+                // console.log(applicantData);
+
+                const applicant = fetch("http://localhost:3000/applicants", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(applicantData)
+                }).then(res => res.json())
+                    .then((data) => {
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Form Submitted Successfully'
+                        })
+                        applicationForm.reset();
+                    }).catch((err) => {
+                        console.log(err);
+                    })
+
+            })
+
+
+
+        </script>
+
+
+
 
 
 </body>
+
 </html>
