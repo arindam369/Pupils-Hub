@@ -6,9 +6,6 @@
     /* border: 1px solid red; */
     display: flex;
 }
-.navbar-brand img{
-    /* border: 1px solid blue; */
-}
 .logoname{
     /* border: 1px solid red; */
     margin-top: 9px;
@@ -182,9 +179,6 @@ header{
     /* border: 3px solid blue; */
     padding: 10px 20px;
 }
-.container-fluid p{
-    /* border: 2px solid red; */
-}
 .room-para{
     /* margin-left: 20px; */
     padding: 3px 10px;
@@ -204,6 +198,7 @@ header{
     /* border: 2px solid red; */
     /* padding: 5px 20px; */
     margin: 5px 20px;
+    display: flex;
 }
 .feedback-box{
     /* border: 2px solid green; */
@@ -211,6 +206,7 @@ header{
     height: 440px;
     width: 264px;
     border-radius: 8px;
+    margin-left: 10px;
 }
 .review-image-box{
     padding: 8px;
@@ -268,6 +264,57 @@ header{
     
   }
   .swiper-wrapper{
-    /* border: 2px solid red; */
+    /* border: 2px solid blue; */
     padding:10px 0px 50px 0px;
   }
+@media (max-width:845px) {
+    .feedback-box{
+        margin-left: 60px;
+    }
+}
+@media (max-width:760px) {
+    .feedback-box{
+        margin-left: 40px;
+    }
+}
+
+@media (max-width:650px) {
+    .feedback-box{
+        margin-left: 10px;
+    }
+}
+@media (max-width:565px) {
+    .feedback-box{
+        margin-left: 100px;
+    }
+}
+@media (max-width:490px) {
+    .feedback-box{
+        margin-left: 80px;
+    }
+}
+@media (max-width:450px) {
+    .feedback-box{
+        margin-left: 70px;
+    }
+}
+@media (max-width:435px) {
+    .feedback-box{
+        margin-left: 60px;
+    }
+}
+@media (max-width:400px) {
+    .feedback-box{
+        margin-left: 40px;
+    }
+}
+@media (max-width:360px) {
+    .feedback-box{
+        margin-left: 20px;
+    }
+}
+@media (max-width:330px) {
+    .feedback-box{
+        margin-left: 0px;
+    }
+}

@@ -23,8 +23,8 @@
         integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="./../home.css">
 
@@ -52,18 +52,18 @@
                     <div class="room-availability-box">
                         <div class="single-room">
                             <div class="roomType">Single Rooms</div>
-                            <div class="noOfRooms"> 4/10 </div>
+                            <div class="noOfRooms" id="h2-noOfSingleRooms">  </div>
                         </div>
                         <div class="sharing-room">
                             <div class="roomType">Sharing Rooms</div>
-                            <div class="noOfRooms"> 4/10 </div>
+                            <div class="noOfRooms" id="h2-noOfSharingRooms">  </div>
                         </div>
                     </div>
 
                     <div class="single-room-database">
                         <h3 class="database-name">Single Room Database</h3>
                         <div class="dataTable">
-                            <table>
+                            <table id="h2-singleRoomTable">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -74,84 +74,10 @@
                                         <th>College</th>
                                         <th>Room No.</th>
                                         <th>Paid</th>
-                                        <th>pdf</th>
-                                        <th>Action</th>
+                                        <th>Info</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                    <tr>
-                                        <td>002011001025</td>
-                                        <td>Dibyabrata Panja</td>
-                                        <td>Male</td>
-                                        <td>dibyapanja69@gmail.com</td>
-                                        <td>1234567890</td>
-                                        <td>Jadavpur University</td>
-                                        <td>3</td>
-                                        <!-- <td>Yes</td> -->
-                                        <td>
-                                            <label class="switch">
-                                                <input type="checkbox">
-                                                <span class="slider round"></span>
-                                            </label>
-                                        </td>
-                                        <td> <i class="fas fa-file-pdf"></i> </td>
-                                        <td> <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>002011001050</td>
-                                        <td>Rajdeep Mallick</td>
-                                        <td>Male</td>
-                                        <td>codefupanda12@gmail.com</td>
-                                        <td>1234598760</td>
-                                        <td>Jadavpur University</td>
-                                        <td>2</td>
-                                        <!-- <td>Yes</td> -->
-                                        <td>
-                                            <label class="switch">
-                                                <input type="checkbox">
-                                                <span class="slider round"></span>
-                                            </label>
-                                        </td>
-                                        <td> <i class="fas fa-file-pdf"></i> </td>
-                                        <td> <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>002011001105</td>
-                                        <td>Souvik Naskar</td>
-                                        <td>Male</td>
-                                        <td>snrp2002@gmail.com</td>
-                                        <td>9876543210</td>
-                                        <td>Techno India NewTown</td>
-                                        <td>4</td>
-                                        <!-- <td>Yes</td> -->
-                                        <td>
-                                            <label class="switch">
-                                                <input type="checkbox">
-                                                <span class="slider round"></span>
-                                            </label>
-                                        </td>
-                                        <td> <i class="fas fa-file-pdf"></i> </td>
-                                        <td> <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>002011001036</td>
-                                        <td>Arindam Halder</td>
-                                        <td>Male</td>
-                                        <td>halderarindam10000@gmail.com</td>
-                                        <td>5432198760</td>
-                                        <td> IIT Kharagpur </td>
-                                        <td>6</td>
-                                        <!-- <td>Yes</td> -->
-                                        <td>
-                                            <label class="switch">
-                                                <input type="checkbox">
-                                                <span class="slider round"></span>
-                                            </label>
-                                        </td>
-                                        <td> <i class="fas fa-file-pdf"></i> </td>
-                                        <td> <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i> </td>
-                                    </tr>
 
                                 </tbody>
                             </table>
@@ -161,7 +87,7 @@
                     <div class="sharing-room-database">
                         <h3 class="database-name">Sharing Room Database</h3>
                         <div class="dataTable">
-                            <table>
+                            <table id="h2-sharingRoomTable">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -172,84 +98,10 @@
                                         <th>College</th>
                                         <th>Room No.</th>
                                         <th>Paid</th>
-                                        <th>pdf</th>
-                                        <th>Action</th>
+                                        <th>Info</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                    <tr>
-                                        <td>002011001025</td>
-                                        <td>Dibyabrata Panja</td>
-                                        <td>Male</td>
-                                        <td>dibyapanja69@gmail.com</td>
-                                        <td>1234567890</td>
-                                        <td>Jadavpur University</td>
-                                        <td>3</td>
-                                        <!-- <td>Yes</td> -->
-                                        <td>
-                                            <label class="switch">
-                                                <input type="checkbox">
-                                                <span class="slider round"></span>
-                                            </label>
-                                        </td>
-                                        <td> <i class="fas fa-file-pdf"></i> </td>
-                                        <td> <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>002011001050</td>
-                                        <td>Rajdeep Mallick</td>
-                                        <td>Male</td>
-                                        <td>codefupanda12@gmail.com</td>
-                                        <td>1234598760</td>
-                                        <td>Jadavpur University</td>
-                                        <td>2</td>
-                                        <!-- <td>Yes</td> -->
-                                        <td>
-                                            <label class="switch">
-                                                <input type="checkbox">
-                                                <span class="slider round"></span>
-                                            </label>
-                                        </td>
-                                        <td> <i class="fas fa-file-pdf"></i> </td>
-                                        <td> <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>002011001105</td>
-                                        <td>Souvik Naskar</td>
-                                        <td>Male</td>
-                                        <td>snrp2002@gmail.com</td>
-                                        <td>9876543210</td>
-                                        <td>Techno India NewTown</td>
-                                        <td>4</td>
-                                        <!-- <td>Yes</td> -->
-                                        <td>
-                                            <label class="switch">
-                                                <input type="checkbox">
-                                                <span class="slider round"></span>
-                                            </label>
-                                        </td>
-                                        <td> <i class="fas fa-file-pdf"></i> </td>
-                                        <td> <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>002011001036</td>
-                                        <td>Arindam Halder</td>
-                                        <td>Male</td>
-                                        <td>halderarindam10000@gmail.com</td>
-                                        <td>5432198760</td>
-                                        <td> IIT Kharagpur </td>
-                                        <td>6</td>
-                                        <!-- <td>Yes</td> -->
-                                        <td>
-                                            <label class="switch">
-                                                <input type="checkbox">
-                                                <span class="slider round"></span>
-                                            </label>
-                                        </td>
-                                        <td> <i class="fas fa-file-pdf"></i> </td>
-                                        <td> <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i> </td>
-                                    </tr>
 
                                 </tbody>
                             </table>
@@ -267,6 +119,143 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
 
+        <script>
+            const h2_singleRoomTable = document.getElementById("h2-singleRoomTable");
+            const h2_sharingRoomTable = document.getElementById("h2-sharingRoomTable");
+            const h2_noOfSingleRooms = document.getElementById("h2-noOfSingleRooms");
+            const h2_noOfSharingRooms = document.getElementById("h2-noOfSharingRooms");
+
+
+            const allHostelites_h2 = fetch("http://localhost:3000/hostelites").then((res) => {
+                return res.json();
+            }).then((dataArray) => {
+                dataArray.forEach((data) => {
+                    if (data.hostelNo === 2 && data.roomType === 'Single') {
+                        const tbody = document.createElement("tbody");
+                        h2_singleRoomTable.appendChild(tbody);
+
+                        const tr = document.createElement("tr");
+                        tbody.appendChild(tr);
+
+                        const td_id = document.createElement("td");
+                        td_id.innerHTML = data._id;
+                        tr.appendChild(td_id);
+
+                        const td_fullname = document.createElement("td");
+                        td_fullname.innerHTML = data.fullname;
+                        tr.appendChild(td_fullname);
+
+                        const td_gender = document.createElement("td");
+                        td_gender.innerHTML = data.gender;
+                        tr.appendChild(td_gender);
+
+                        const td_email = document.createElement("td");
+                        td_email.innerHTML = data.email;
+                        tr.appendChild(td_email);
+
+                        const td_mobileNo = document.createElement("td");
+                        td_mobileNo.innerHTML = data.mobileNo;
+                        tr.appendChild(td_mobileNo);
+
+                        const td_college = document.createElement("td");
+                        td_college.innerHTML = data.college;
+                        tr.appendChild(td_college);
+
+                        const td_roomNo = document.createElement("td");
+                        td_roomNo.innerHTML = data.roomNo;
+                        tr.appendChild(td_roomNo);
+
+                        const td_isPaid = document.createElement("td");
+                        tr.appendChild(td_isPaid);
+                        const td_isPaid_label = document.createElement("label");
+                        td_isPaid_label.classList.add("switch");
+                        td_isPaid.appendChild(td_isPaid_label);
+                        const td_isPaid_label_checkbox = document.createElement("input");
+                        td_isPaid_label_checkbox.type = "checkbox";
+                        td_isPaid_label_checkbox.checked = data.isPaid;
+                        td_isPaid_label.appendChild(td_isPaid_label_checkbox);
+                        const td_isPaid_label_slider = document.createElement("span");
+                        td_isPaid_label_slider.classList.add("slider", "round");
+                        td_isPaid_label.appendChild(td_isPaid_label_slider);
+
+                        const td_info = document.createElement("td");
+                        tr.appendChild(td_info);
+                        const td_info_i = document.createElement("i");
+                        td_info_i.classList.add("fas", "fa-info-circle");
+                        td_info.appendChild(td_info_i);
+                    }
+                    if (data.hostelNo === 2 && data.roomType === 'Sharing') {
+                        const tbody = document.createElement("tbody");
+                        h2_sharingRoomTable.appendChild(tbody);
+
+                        const tr = document.createElement("tr");
+                        tbody.appendChild(tr);
+
+                        const td_id = document.createElement("td");
+                        td_id.innerHTML = data._id;
+                        tr.appendChild(td_id);
+
+                        const td_fullname = document.createElement("td");
+                        td_fullname.innerHTML = data.fullname;
+                        tr.appendChild(td_fullname);
+
+                        const td_gender = document.createElement("td");
+                        td_gender.innerHTML = data.gender;
+                        tr.appendChild(td_gender);
+
+                        const td_email = document.createElement("td");
+                        td_email.innerHTML = data.email;
+                        tr.appendChild(td_email);
+
+                        const td_mobileNo = document.createElement("td");
+                        td_mobileNo.innerHTML = data.mobileNo;
+                        tr.appendChild(td_mobileNo);
+
+                        const td_college = document.createElement("td");
+                        td_college.innerHTML = data.college;
+                        tr.appendChild(td_college);
+
+                        const td_roomNo = document.createElement("td");
+                        td_roomNo.innerHTML = data.roomNo;
+                        tr.appendChild(td_roomNo);
+
+                        const td_isPaid = document.createElement("td");
+                        tr.appendChild(td_isPaid);
+                        const td_isPaid_label = document.createElement("label");
+                        td_isPaid_label.classList.add("switch");
+                        td_isPaid.appendChild(td_isPaid_label);
+                        const td_isPaid_label_checkbox = document.createElement("input");
+                        td_isPaid_label_checkbox.type = "checkbox";
+                        td_isPaid_label_checkbox.checked = data.isPaid;
+                        td_isPaid_label.appendChild(td_isPaid_label_checkbox);
+                        const td_isPaid_label_slider = document.createElement("span");
+                        td_isPaid_label_slider.classList.add("slider", "round");
+                        td_isPaid_label.appendChild(td_isPaid_label_slider);
+
+                        const td_info = document.createElement("td");
+                        tr.appendChild(td_info);
+                        const td_info_i = document.createElement("i");
+                        td_info_i.classList.add("fas", "fa-info-circle");
+                        td_info.appendChild(td_info_i);
+                    }
+                })
+                let h2_single = 0;
+                let h2_sharing = 0;
+                dataArray.forEach((data)=>{
+                    if(data.hostelNo===2 && data.roomType === 'Single'){
+                        h2_single++;
+                    }
+                    if(data.hostelNo===2 && data.roomType==='Sharing'){
+                        h2_sharing++;
+                    }
+                })
+                h2_noOfSingleRooms.innerHTML = `${h2_single}/10`;
+                h2_noOfSharingRooms.innerHTML = `${h2_sharing}/10`;
+
+            }).catch((error) => {
+                console.log(error);
+            });
+        </script>
 
 </body>
 

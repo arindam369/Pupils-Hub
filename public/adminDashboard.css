@@ -40,7 +40,7 @@ body{
     font-weight: bold;
     /* border: 1px solid red; */
     color: rgb(238, 238, 238);
-    padding: 13px 20px;
+    padding: 8px 20px;
     border-radius: 9px;
 }
 .dashboard-bullet-box li a{
@@ -134,18 +134,19 @@ body{
     /* overflow-x: auto; */
 }
 .dataTable table{
-    border: 2px solid black;
+    border: 1px solid black;
+    width: 1050px;
+    /* border-radius: 10px !important; */
 }
 .dataTable table thead th{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
+    text-align: center;
     padding: 2px;
     background-color: rgb(219, 219, 219);
 }
+
 .dataTable table tbody tr td{
-    border: 1px solid blue;
-}
-.dataTable table tbody tr td{
-    padding: 6px 12px;
+    padding: 6px 8px;
     text-align: center;
 }
 .fa-trash-alt{
@@ -416,10 +417,16 @@ body{
     color: #0275d8;
     font-size: 1.1rem;
     cursor: pointer;
+    /* border: 1px solid blue; */
+    width: 120px;
 }
 
 .hostelNoButtons span{
     margin: 0px 6px;
+    /* border: 1px solid red; */
+}
+.hostelNoButtons span:active{
+    font-size: .8rem;
 }
 .fa-envelope{
     font-size: 1.4rem;
@@ -489,4 +496,29 @@ input[type=number]::-webkit-outer-spin-button {
 }
 input[type=number] {
     -moz-appearance:textfield;
+}
+
+/* Update  Hostelites ===================== */
+.payment-status{
+    display: flex;
+    justify-content: center;
+    font-family:sans-serif;
+    font-weight: 600;
+    color: rgb(161, 55, 29);
+    margin-top: 10px;
+}
+.hostel-type{
+    display: flex;
+    justify-content: center;
+    font-family:sans-serif;
+    font-weight: 600;
+    color: rgb(161, 55, 29);
+}
+.select-hostel-type{
+    margin-left: 40px;
+}
+.fa-asterisk{
+    font-size: .4rem;
+    position: absolute;
+    color: #ff0000;
 }

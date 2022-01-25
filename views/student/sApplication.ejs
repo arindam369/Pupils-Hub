@@ -110,8 +110,8 @@
                                     <label for="hostel-type" class="hostel-type">
                                         What Type of Hostel Room you want to take ?<i class="fas fa-asterisk"></i>
                                         <select name="cars" id="cars" class="select-hostel-type" required>
-                                            <option name="roomType" value="single">Single</option>
-                                            <option name="roomType" value="sharing">Sharing</option>
+                                            <option name="roomType" value="Single">Single</option>
+                                            <option name="roomType" value="Sharing">Sharing</option>
                                         </select>
                                     </label>
                                     <!-- <br> -->
@@ -178,10 +178,10 @@
                     gender = e.srcElement[12].value;
                 }
                 else if (gender_female) {
-                    gender = e.srcElement.value;
+                    gender = e.srcElement[13].value;
                 }
                 else {
-                    gender = e.srcElement.value;
+                    gender = e.srcElement[14].value;
                 }
 
                 const applicantData = {

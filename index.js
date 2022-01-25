@@ -4,6 +4,7 @@ require("./src/db/mongoose");
 const User = require("./src/models/user");
 const userRouter = require("./src/routers/user");
 const applicantRouter = require("./src/routers/applicant");
+const hosteliteRouter = require("./src/routers/hostelite");
 const adminRouter = require("./src/routers/admin");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -12,7 +13,6 @@ const auth = require("./src/middleware/auth");
 const cookieParser = require("cookie-parser");
 const sendMail = require('./src/routers/mail');
 const adminAuth = require("./src/middleware/adminAuth");
-// const path = require('path');
 
 
 const port = process.env.PORT || 3000;
@@ -83,6 +83,9 @@ app.get("/aHostel2",adminAuth ,(req,res)=>{
 app.get("/aHostel3",adminAuth,(req,res)=>{
     res.render("admin/Hostel3");
 })
+app.get("/aUpdateHostelites",adminAuth,(req,res)=>{
+    res.render("admin/aHostelites");
+})
 app.get("/aSettings",adminAuth,(req,res)=>{
     res.render("admin/aSettings");
 })
@@ -114,3 +117,4 @@ app.listen(port, () => {
 app.use(userRouter);
 app.use(applicantRouter);
 app.use(adminRouter);
+app.use(hosteliteRouter);
