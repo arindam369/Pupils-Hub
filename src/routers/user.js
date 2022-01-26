@@ -107,7 +107,7 @@ router.post("/users/login",async (req,res)=>{
         const token = await authenticatedUser.generateAuthToken();
         // console.log({authenticatedUser,token});
         res.cookie("Pupils_Hub",token,{
-            expires:new Date(Date.now() + 20000*60),
+            expires:new Date(Date.now() + 24*60*60*1000),
             httpOnly:true
         });
         // res.render("student/sProfile.ejs");

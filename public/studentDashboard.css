@@ -581,3 +581,51 @@ label{
     /* border: 2px solid red; */
     height: 100px;
 }
+
+/* Announcements ===================================== */
+/* announcement ================================= */
+.announcement-img img{
+    height: 40px;
+    margin-right: 12px;
+}
+.announcement-create-container{
+    /* border: 1px solid red; */
+    margin-top: 40px;
+    padding: 10px 20px;
+}
+.notice-head{
+    margin-top: 40px;
+    margin-bottom: 50px;
+    margin-left: 30px;
+}
+.announcement-card{
+    /* border: 1px solid blue; */
+    width: 700px;
+    margin-bottom: 30px;
+}
+.notice-subject{
+    /* border: 1px solid red; */
+    font-weight: 800;
+    color: #0275d8;
+    padding: 3px 40px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+.notice-message{
+    /* border: 1px solid blue; */
+    font-size: .9rem;
+    padding: 3px 50px;
+    margin-left: 30px;
+}
+.fa-backspace{
+    color: #d9534f;
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+.fa-backspace:hover{
+    color: #740b08;
+}
+.fa-backspace:active{
+    transform: scale(.93);
+}

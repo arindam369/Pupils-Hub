@@ -6,6 +6,7 @@ const userRouter = require("./src/routers/user");
 const applicantRouter = require("./src/routers/applicant");
 const hosteliteRouter = require("./src/routers/hostelite");
 const adminRouter = require("./src/routers/admin");
+const announcementRouter = require("./src/routers/announcement");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
@@ -48,7 +49,9 @@ app.get("/login", (req, res) => {
 app.get("/sDashboard", auth, (req, res) => {
     res.render("student/sProfile");
 });
-
+app.get("/sAnnouncement", auth,(req,res)=>{
+    res.render("student/sAnnouncement");
+})
 app.get("/sApplication",auth, (req, res) => {
     res.render("student/sApplication");
 })
@@ -70,6 +73,9 @@ app.get("/aDashboard", adminAuth,(req,res)=>{
 })
 app.get("/aCreate", adminAuth,(req,res)=>{
     res.render("admin/aCreate");
+})
+app.get("/aAnnouncement", adminAuth,(req,res)=>{
+    res.render("admin/aAnnouncement");
 })
 app.get("/aPending",adminAuth,(req,res)=>{
     res.render("admin/aPending");
@@ -118,3 +124,4 @@ app.use(userRouter);
 app.use(applicantRouter);
 app.use(adminRouter);
 app.use(hosteliteRouter);
+app.use(announcementRouter);

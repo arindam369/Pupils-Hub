@@ -45,7 +45,7 @@ const SECRET = "This is my little secret";
 
 adminSchema.methods.generateAuthToken = async function(){
     const authenticatedAdmin = this;
-    const token = jwt.sign({_id: authenticatedAdmin._id.toString()},SECRET,{expiresIn:"2 hour"});
+    const token = jwt.sign({_id: authenticatedAdmin._id.toString()},SECRET,{expiresIn:"1 day"});
     authenticatedAdmin.tokens = authenticatedAdmin.tokens.concat({token});
     await authenticatedAdmin.save();
     return token;
