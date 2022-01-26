@@ -66,13 +66,13 @@
                         </div>
 
                         <div class="card-button-box">
-                                <i class="fas fa-envelope"></i>
+                                <i class="fas fa-envelope" id="payment-mail"></i>
                                 <div class="hostelNoButtons">
                                     <span>1</span>
                                     <span>2</span>
                                     <span>3</span>
                                 </div>
-                                <i class="fas fa-trash-alt del-trash"></i>
+                                <i class="fas fa-trash-alt del-trash" id="delete-mail"></i>
                             </div>
 
                         </div>
@@ -154,6 +154,7 @@
 
                     const i_gmail = document.createElement("i");
                     i_gmail.classList.add("fas", "fa-envelope");
+                    i_gmail.id = "payment-mail"
                     buttonBox.appendChild(i_gmail);
 
                     const hostelNumbers = document.createElement("div");
@@ -172,6 +173,7 @@
 
                     const i_delete = document.createElement("i");
                     i_delete.classList.add("fas", "fa-trash-alt", "del-trash");
+                    i_delete.id = "delete-mail";
                     buttonBox.appendChild(i_delete);
 
                     i_delete.addEventListener("click", () => {
