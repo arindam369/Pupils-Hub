@@ -154,7 +154,8 @@ app.use(announcementRouter);
 const razorpay = new Razorpay({
     // key_id: process.env.RAZORPAY_KEY_ID,
     key_id: "rzp_test_Dc8k9akyGMSOgx",
-    key_secret: process.env.RAZORPAY_KEY_SECRET
+    // key_secret: process.env.RAZORPAY_KEY_SECRET
+    key_secret: "Zb6BGm9DWG5j2NRpGesk8unw"
 })
 
 app.set('views', 'views')
