@@ -58,10 +58,12 @@
                 <!-- sign up form ===========  -->
                 <form id="signup" class="input-space" method="post" action="/users"
                     onsubmit="return handleSubmit(event);">
-                    <input type="text" class="input-field" placeholder="Enter your full name" required name="fullname">
+                    <input type="text" class="input-field" placeholder="Enter your full name" required name="fullname"
+                        id="name">
                     <input type="text" class="input-field" placeholder="Enter your mobile number" required
                         name="mobileNo">
-                    <input type="email" class="input-field" placeholder="Enter your e-mail id" required name="email">
+                    <input type="email" class="input-field" placeholder="Enter your e-mail id" required name="email"
+                        id="email">
                     <input type="password" id="passkey" class="input-field" placeholder="Enter your password" required
                         name="pass">
                     <input type="password" class="input-field" placeholder="Confirm password" onkeyup="confirm(this)"
@@ -167,13 +169,30 @@
                             icon: 'success',
                             title: 'Signed up successfully'
                         })
+
+
+                        // send email to users at the time of signing up
+                        const name = document.getElementById('name').value;
+                        const email = document.getElementById('email').value;
+                        const data = {
+                            name, email
+                        }
+                        const url = '/sEmail';
+                        const Params = {
+                            headers: {
+                                "content-type": "application/json; charset=UTF-8"
+                            },
+                            body: JSON.stringify(data),
+                            method: "POST"
+                        }
+                        fetch(url, Params)
+                            .then(data => { return data.json() })
+                            .then(res => { console.log(res) })
+                            .catch(err => { console.log(err) })
+
                         return true;
                     }
                     else {
-                        // Toast.fire({
-                        //     icon: 'error',
-                        //     title: 'Please check password criteria'
-                        // })
                         Toast.fire({
                             icon: 'error',
                             title: 'Password should contain: \n  atleast 1 lowercase \n   atleast 1 uppercase \n   atleast 1 number \n   atleast 1 special character \n    min length: 6'
@@ -182,7 +201,6 @@
                     }
 
                 }
-
 
 
 

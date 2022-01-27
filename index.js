@@ -13,7 +13,15 @@ const bodyParser = require("body-parser");
 const auth = require("./src/middleware/auth");
 const cookieParser = require("cookie-parser");
 const sendMail = require('./src/routers/mail');
+const sSendMail = require('./src/routers/signup_mail');
+const hSendMail = require('./src/routers/helpmail');
+const singlesendMail = require('./src/routers/singleMail');
+const sharingsendMail = require('./src/routers/sharingMail');
+const deleteMail = require('./src/routers/deleteMail');
+
 const adminAuth = require("./src/middleware/adminAuth");
+const nodemailer = require("nodemailer");
+const Razorpay = require("razorpay");
 
 
 const port = process.env.PORT || 3000;
@@ -95,6 +103,11 @@ app.get("/aUpdateHostelites",adminAuth,(req,res)=>{
 app.get("/aSettings",adminAuth,(req,res)=>{
     res.render("admin/aSettings");
 })
+app.get("/meals",(req,res)=>{
+    res.render("meal-plan");
+})
+
+
 
 // mail via nodemailer (homepage) :
 app.post('/email', (req, res) => {
@@ -114,7 +127,40 @@ app.post('/email', (req, res) => {
 })
 
 
+app.post('/sEmail', (req, res) => {
+    console.log('Data: ', req.body);
+    const { name, email } = req.body;
+    sSendMail(
+        name, email
+    )
+})
 
+app.post('/helpmail', (req, res) => {
+    const { name, email, subject, message } = req.body;
+    hSendMail(
+        name, email, subject, message
+    )
+})
+app.post('/reject', (req, res) => {
+    const { recipientName, recipientEmail } = req.body;
+    deleteMail(
+        recipientName, recipientEmail
+    )
+})
+
+app.post('/sSingle', (req, res) => {
+    const { recipientName, recipientEmail } = req.body;
+    singlesendMail(
+        recipientName, recipientEmail
+    )
+})
+
+app.post('/sSharing', (req, res) => {
+    const { recipientName, recipientEmail } = req.body;
+    sharingsendMail(
+        recipientName, recipientEmail
+    )
+})
 
 
 app.listen(port, () => {
@@ -125,3 +171,117 @@ app.use(applicantRouter);
 app.use(adminRouter);
 app.use(hosteliteRouter);
 app.use(announcementRouter);
+
+
+
+// ============================ razorpay ===============================
+
+//store this in the database
+// {
+//     "razorpay_payment_id": "pay_29QQoUBi66xm2f",
+//     "razorpay_order_id": "order_9A33XWu170gUtm",
+//     "razorpay_signature": "9ef4dffbfd84f1318f6739a3ce19f9d85851857ae648f114332d8401e0949a3d"
+// }
+
+const razorpay = new Razorpay({
+    key_id: 'rzp_test_Dc8k9akyGMSOgx',
+    key_secret: 'Zb6BGm9DWG5j2NRpGesk8unw'
+})
+
+app.set('views', 'views')
+
+app.get('/payment', (req, res) => {
+    res.redirect("/sDashboard");
+})
+
+app.post('/order', (req, res) => {
+
+    let options = {
+        amount: 5000 * 100,
+        currency: "INR"
+        // receipt: uniqueID(),
+    };
+
+    razorpay.orders.create(options, (err, order) => {
+        // order_id_var=order.id
+        if (err) {
+            return res.status(500).json({
+                error: err
+            })
+        }
+        console.log(order)
+        // orderId = order.id
+        res.json(order)
+    })
+})
+
+// function displayconfirmed() {
+//     const swalWithBootstrapButtons = Swal.mixin({
+//         customClass: {
+//             confirmButton: 'btn btn-success',
+//             cancelButton: 'btn btn-danger'
+//         },
+//         buttonsStyling: false
+//     })
+//     swalWithBootstrapButtons.fire({
+//         title: 'Payment Successful!!',
+//         text: "Your transaction was successful",
+//         icon: 'success',
+//         showCancelButton: true,
+//         confirmButtonText: 'Download invoice',
+//         cancelButtonText: 'Back',
+//         reverseButtons: true
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             swalWithBootstrapButtons.fire(
+//                 'Invoice generation successful!',
+//                 'success'
+//             )
+//         } else if (
+//             /* Read more about handling dismissals below */
+//             result.dismiss === Swal.DismissReason.cancel
+//         ) {
+//             swalWithBootstrapButtons.fire(
+//                 //nothing
+//             )
+//         }
+//     })
+// }
+
+app.post('/is-order-completed', (req, res) => {
+
+    razorpay.payments.fetch(req.body.razorpay_payment_id).then((paymentDocument) => {
+
+        console.log(paymentDocument)
+        if (paymentDocument.status == 'captured') {
+            var transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'gojos8675@gmail.com',
+                    pass: '#GojoSatoru24'
+                }
+            });
+            var mailOptions = {
+                from: "gojos8675@gmail.com",
+                to: `neophytesAdm@gmail.com,${paymentDocument.email}`,
+                subject: `NO REPLY: Payment done for ${paymentDocument.email}`,
+                html: `<h3 style="color: red;">Payment of Rs. ${paymentDocument.amount / 100} Successful for ${paymentDocument.email} and ${paymentDocument.contact} via ${paymentDocument.method} for the current month</h3>`
+            };
+
+            transporter.sendMail(mailOptions, (err, info) => {
+                if (err) {
+                    console.log(err)
+                }
+                else {
+                    console.log('Email sent: ' + info.response)
+                }
+            })
+
+            // displayconfirmed();
+
+            res.redirect('/payment');
+        }
+        else
+            res.redirect('/payment')
+    })
+})

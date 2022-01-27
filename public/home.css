@@ -69,7 +69,7 @@ header img{
 }
 
 header{
-    height: 117vh !important;
+    /* height: 117vh !important; */
 }
 .header-headings{
     display: flex;
@@ -317,4 +317,61 @@ header{
     .feedback-box{
         margin-left: 0px;
     }
+}
+
+.image-box-carousal{
+    display: flex;
+    justify-content: center;
+    /* border: 4px solid red; */
+}
+
+.text-center a:hover{
+    color: #ffee00;
+    transition: 0.5s all;
+}
+.footer-li a:hover{
+    color: #ffee00;
+    transition: 0.5s all;
+}
+.footer-authority p a:hover{
+    border-bottom: 2px solid #ffee00;
+    padding-bottom: 2px;
+}
+@media (max-width:360px){
+    .logoname{
+        margin-top: 14px;
+        font-size: 1.3rem;
+    }
+    .navbar-brand img{
+        width: 35px;
+        height: 35px;
+        margin-top: 5px;
+    }
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+.map{
+    display: inline-block !important;
+    /* border: 2px solid blue; */
+    width: 430px;
+}
+.map iframe{
+    height: 240px;
+    width: 400px;
+}
+.row{
+    /* border: 3px solid  white; */
+}
+.below-map{
+    /* border: 1px solid  red; */
+    justify-content: center;
+}
+.footer-li{
+    justify-content: center;
 }

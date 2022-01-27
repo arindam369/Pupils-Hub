@@ -124,10 +124,12 @@
                     pendingCard.appendChild(dataBox);
 
                     const a_name = document.createElement("div");
+                    // a_name.id = "a_name";
                     a_name.innerHTML = `Name : ${data.fullname}`;
                     dataBox.appendChild(a_name);
 
                     const a_email = document.createElement("div");
+                    // a_email.id = "a_email";
                     a_email.innerHTML = `Email : ${data.email}`;
                     dataBox.appendChild(a_email);
 
@@ -140,6 +142,7 @@
                     dataBox.appendChild(a_gender);
 
                     const a_roomType = document.createElement("div");
+                    // a_roomType.id = "a_roomType";
                     a_roomType.innerHTML = `Room Type : ${data.roomType}`;
                     dataBox.appendChild(a_roomType);
 
@@ -156,6 +159,7 @@
                     i_gmail.classList.add("fas", "fa-envelope");
                     i_gmail.id = "payment-mail"
                     buttonBox.appendChild(i_gmail);
+
 
                     const hostelNumbers = document.createElement("div");
                     hostelNumbers.classList.add("hostelNoButtons");
@@ -176,7 +180,27 @@
                     i_delete.id = "delete-mail";
                     buttonBox.appendChild(i_delete);
 
-                    i_delete.addEventListener("click", () => {
+                    i_delete.addEventListener("click", (e) => {
+
+                        e.preventDefault();
+                        const recipientName = data.fullname;
+                        const recipientEmail = data.email;
+                        const roomType = data.roomType;
+                        const deleteMailData = { recipientName, recipientEmail };
+                        console.log(deleteMailData);
+
+                        Params = {
+                            method: "POST",
+                            headers: {
+                                "content-type": "application/json; charset=UTF-8"
+                            },
+                            body: JSON.stringify(deleteMailData)
+                        }
+                        fetch('/reject', Params)
+                            .then(data => { return data.json() })
+                            .then(res => { })
+                            .catch(err => { console.log(err) })
+
                         const deletePendingApplicant = fetch(`http://localhost:3000/applicants/${data._id}`, {
                             method: "DELETE",
                             headers: {
@@ -188,6 +212,46 @@
                             console.log(err);
                         })
                     })
+
+                    // i_gmail.addEventListener("click",(e)=>{
+                    //     e.preventDefault();
+                    //     const email = document.getElementById("")
+                    // })
+
+                    i_gmail.addEventListener("click", (e) => {
+                        e.preventDefault();
+
+                        const recipientName = data.fullname;
+                        const recipientEmail = data.email;
+                        const roomType = data.roomType;
+                        // console.log(recipientName);
+                        // console.log(recipientEmail);
+                        // console.log(recipientRoomType);
+                        const singleMailData = { recipientName, recipientEmail };
+                        console.log(singleMailData);
+
+                        Params = {
+                            method: "POST",
+                            headers: {
+                                "content-type": "application/json; charset=UTF-8"
+                            },
+                            body: JSON.stringify(singleMailData)
+                        }
+                        if (roomType === "Sharing") {
+                            fetch('/sSharing', Params)
+                                .then(data => { return data.json() })
+                                .then(res => { })
+                                .catch(err => { console.log(err) })
+                        }
+                        else {
+                            fetch('/sSingle', Params)
+                                .then(data => { return data.json() })
+                                .then(res => { })
+                                .catch(err => { console.log(err) })
+                        }
+                    })
+
+
 
                     no1.addEventListener("click", () => {
                         let newHosteliteData = data;
