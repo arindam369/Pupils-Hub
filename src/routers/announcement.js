@@ -13,9 +13,7 @@ app.use(bodyParser.json());
 
 // creating an announcement ============================
 router.post("/announcements",adminAuth,(req, res) => {
-    
     const newAnnouncement = new Announcement(req.body);
-
     newAnnouncement.save().then((result) => {
         console.log("New Announcement created Successfully. ", result);
         res.send(result);
@@ -50,7 +48,6 @@ router.delete("/announcements/:id",adminAuth,async (req,res)=>{
         res.status(400).send(error);
     }
 })
-
 
 
 module.exports = router;

@@ -1,15 +1,13 @@
 const jwt = require("jsonwebtoken");
 const Admin = require("../models/admin");
 
-const SECRET = "This is my little secret";
+const SECRET = process.env.SECRET_KEY;
 
 const adminAuth = async (req, res, next) => {
     try {
         // const token = req.header("Authorization").replace("Bearer", "").trim();
         const token = req.cookies.Pupils_Hub;
-        // console.log(`browser generated token : ${token}`);
         const decoded = jwt.verify(token, SECRET);
-        // console.log(decoded);
 
         const authAdmin = await Admin.findOne({ _id: decoded._id, "tokens.token": token });
         if (!authAdmin) {

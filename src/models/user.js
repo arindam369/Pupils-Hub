@@ -52,7 +52,7 @@ const userSchema = new mongoose.Schema({
 })
 
 // generating auth token for logging users :
-const SECRET = "This is my little secret";
+const SECRET = process.env.SECRET_KEY;
 userSchema.methods.generateAuthToken = async function(){
     const authenticatedUser = this;
     const token = jwt.sign({_id: authenticatedUser._id.toString()},SECRET,{expiresIn:"1 day"});
@@ -90,18 +90,5 @@ userSchema.pre("save",async function(next){
 
 
 const User = mongoose.model('User', userSchema);
-
-// const user1 = new User({
-//     fullname: "Arindam Halder",
-//     email: "halderarindam10000@gmail.com",
-//     mobileNo: "8777712395",
-//     pass: "Hi Arindam"
-// })
-
-// user1.save().then((result)=>{
-//     console.log("User created Successfully. ",result);
-// }).catch((error)=>{
-//     console.log("User Creation Failed. Error : ",error);
-// })
 
 module.exports = User;

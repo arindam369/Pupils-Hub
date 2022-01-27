@@ -1,22 +1,19 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
-const SECRET = "This is my little secret";
+const SECRET = process.env.SECRET_KEY;
 
 const auth = async (req, res, next) => {
     try {
         // const token = req.header("Authorization").replace("Bearer", "").trim();
         const token = req.cookies.Pupils_Hub;
-        // console.log(`browser generated token : ${token}`);
         const decoded = jwt.verify(token, SECRET);
-        // console.log(decoded);
 
         const authUser = await User.findOne({ _id: decoded._id, "tokens.token": token });
         if (!authUser) {
             throw new Error("Please Authenticate! You are not logged in");
         }
         req.user = authUser;
-
         next();
     }
     catch (error) {

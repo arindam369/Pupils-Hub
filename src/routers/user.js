@@ -70,7 +70,6 @@ router.patch("/users/:id", async (req, res) => {
     if(!isValidOperation){
         return res.status(400).send({error: "Invalid Updates!"});
     }
-
     try {
         const updatedUser = await User.findById(req.params.id);
         updates.forEach((update)=> updatedUser[update] = req.body[update]);
@@ -105,14 +104,11 @@ router.post("/users/login",async (req,res)=>{
     try{
         const authenticatedUser = await User.checkLoginCredentials(req.body.email,req.body.pass);
         const token = await authenticatedUser.generateAuthToken();
-        // console.log({authenticatedUser,token});
         res.cookie("Pupils_Hub",token,{
             expires:new Date(Date.now() + 24*60*60*1000),
             httpOnly:true
         });
-        // res.render("student/sProfile.ejs");
         res.redirect("/sDashboard");
-
     }
     catch(error){
         res.status(400).send("Authentication Failed hai");
@@ -128,7 +124,6 @@ router.get("/logout",auth, async (req,res)=>{
         })
         await req.user.save();
         res.clearCookie("Pupils_Hub");
-
         res.redirect("/login");
     }
     catch(error){
@@ -156,7 +151,6 @@ const upload = multer({
 router.post("/users/me/avatar", auth, upload.single("Avatar") ,async (req,res)=>{
     req.user.avatar = req.file.buffer;
     await req.user.save();
-    // res.send("Successfully uploaded your avatar");
     res.redirect("/sDashboard");
 },(error,req,res,next)=>{
     res.status(400).send({error: error.message});
@@ -181,29 +175,19 @@ router.get("/users/:id/avatar",auth,async (req,res)=>{
 
 
 
-
 // check whether user is old user or not (authenticating email,pass)
 router.post("/users/isOldUser",async (req,res)=>{
     try{
         const isOldUser = await User.checkLoginCredentials(req.body.email,req.body.pass);
-        // const token = await authenticatedUser.generateAuthToken();
-        // console.log({authenticatedUser,token});
-        // res.cookie("Pupils_Hub",token,{
-        //     expires:new Date(Date.now() + 20000*60),
-        //     httpOnly:true
-        // });
-        // res.render("student/sProfile.ejs");
-        // res.redirect("/sDashboard");
         console.log(isOldUser);
         if(isOldUser){
 
             return res.send(isOldUser);
         }
         res.status(400).send("Authentication failed");
-
     }
     catch(error){
-        res.status(400).send("Authentication Failed hai");
+        res.status(400).send("Authentication Failed");
     }
 })
 

@@ -41,7 +41,7 @@ const adminSchema = new mongoose.Schema({
 
 
 // generating auth token for logging admins :
-const SECRET = "This is my little secret";
+const SECRET = process.env.SECRET_KEY;
 
 adminSchema.methods.generateAuthToken = async function(){
     const authenticatedAdmin = this;
@@ -77,18 +77,5 @@ adminSchema.pre("save",async function(next){
 
 
 const Admin = mongoose.model('Admin', adminSchema);
-
-// const user1 = new User({
-//     fullname: "Arindam Halder",
-//     email: "halderarindam10000@gmail.com",
-//     mobileNo: "8777712395",
-//     pass: "Hi Arindam"
-// })
-
-// user1.save().then((result)=>{
-//     console.log("User created Successfully. ",result);
-// }).catch((error)=>{
-//     console.log("User Creation Failed. Error : ",error);
-// })
 
 module.exports = Admin;

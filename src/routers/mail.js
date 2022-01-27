@@ -21,7 +21,4 @@ const sendMail = (name, number, email, query) => {
      transporter.sendMail(mailOptions)
 }
 
-// sendMail('','','','',function(err,data){
-
-// })
 module.exports=sendMail;
