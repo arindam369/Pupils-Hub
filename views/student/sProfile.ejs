@@ -118,13 +118,6 @@
 
         <script>
 
-            //     const allUserData = fetch("http://localhost:3000/users").then((user)=>{
-            //   console.log("all users : ");
-            //   console.log(user);
-            // }).catch((error)=>{
-            //   console.log(error);
-            // })
-            // console.log("all users : ",allUserData);
             const myAvatar = document.getElementById("avatar");
 
             const myFullName = document.getElementById("myfullname");
@@ -139,7 +132,7 @@
             const myAddress = document.getElementById("myaddress");
 
 
-            const user = fetch("http://localhost:3000/users/me").then((res) => {
+            const user = fetch("/users/me").then((res) => {
                 return res.json();
             }).then((user) => {
                 // console.log(user);
@@ -156,7 +149,7 @@
                 if (user.bloodGroup) { myBloodGroup.innerHTML = user.bloodGroup };
 
 
-                const avatarURL = fetch(`http://localhost:3000/users/${user._id}/avatar`).then((result) => {
+                const avatarURL = fetch(`/users/${user._id}/avatar`).then((result) => {
                     if(result){
                         if(result.url){
                             myAvatar.src = result.url;

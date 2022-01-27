@@ -171,11 +171,11 @@
 
 
 
-                    const user = fetch("http://localhost:3000/users/me").then((res) => {
+                    const user = fetch("/users/me").then((res) => {
                         return res.json();
                     }).then((user) => {
 
-                        const patchURL = `http://localhost:3000/users/${user._id}`;
+                        const patchURL = `/users/${user._id}`;
 
 
                         updateNameForm.addEventListener("submit", (e) => {
@@ -407,9 +407,6 @@
                                     title: 'Please fill all fields'
                                 })
                             }
-                            // console.log(oldPass);
-                            // console.log(newPass);
-                            // console.log(confirmPass);
                             if (newPass !== confirmPass) {
                                 updatePasswordForm.reset();
                                 return Toast.fire({
@@ -425,7 +422,7 @@
                                 })
                             }
 
-                            const isThisOldUser = fetch("http://localhost:3000/users/isOldUser", {
+                            const isThisOldUser = fetch("/users/isOldUser", {
                                 method: "POST",
                                 headers: {
                                     "Content-Type": "application/json"
@@ -434,7 +431,6 @@
                             }).then((res) => {
                                 return res.json();
                             }).then((data) => {
-                                // console.log(data);
 
                                 const updatedUser_pass = fetch(patchURL, {
                                     method: "PATCH",
@@ -463,29 +459,6 @@
                     }).catch((error) => {
                         console.log(error);
                     })
-
-
-
-
-                    // function updateName(e) {
-                    //         e.preventDefault();
-                    //         const updatedName = e.srcElement[0].value;
-                    //         console.log(updatedName);
-                    //         console.log("hii");
-
-                    //         const updatedUser_name = fetch(patchURL, {
-                    //             method: "patch",
-                    //             headers: {
-                    //                 "Content-Type": "application/json"
-                    //             },
-                    //             body: {"fullname": updatedName}
-                    //         }).then(res => res.json())
-                    //         .then((data)=>{
-                    //             console.log(data);
-                    //         }).catch((err)=>{
-                    //             console.log(err);
-                    //         })
-                    //     }
 
 
                 </script>

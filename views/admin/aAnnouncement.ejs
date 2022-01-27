@@ -129,7 +129,7 @@
                     "announcement": announcement_announcement
                 };
 
-                const newAnnouncement = fetch("http://localhost:3000/announcements", {
+                const newAnnouncement = fetch("/announcements", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -146,11 +146,10 @@
             })
 
 
-            const allAnnouncements = fetch("http://localhost:3000/announcements").then((res) => {
+            const allAnnouncements = fetch("/announcements").then((res) => {
                 return res.json();
             }).then((dataArray) => {
-                console.log("Announcements : ");
-                console.log(dataArray);
+                // console.log(dataArray);
                 dataArray.forEach((data) => {
 
                     const announcementContainer = document.getElementById("announcements-container");
@@ -180,7 +179,7 @@
 
 
                     i_deleteAnnouncement.addEventListener("click", () => {
-                        const deleteAnnouncement = fetch(`http://localhost:3000/announcements/${data._id}`, {
+                        const deleteAnnouncement = fetch(`/announcements/${data._id}`, {
                             method: "DELETE",
                             headers: {
                                 "Content-Type": "application/json"
@@ -196,7 +195,6 @@
 
 
             }).catch((error) => {
-                console.log("error ari")
                 console.log(error);
             });
 

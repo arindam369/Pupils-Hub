@@ -106,11 +106,10 @@
 
 
 
-            const allApplicants = fetch("http://localhost:3000/applicants").then((res) => {
+            const allApplicants = fetch("/applicants").then((res) => {
                 return res.json();
             }).then((dataArray) => {
-                console.log("Applicants : ");
-                console.log(dataArray);
+                // console.log(dataArray);
                 dataArray.forEach((data) => {
 
                     const pendingContainer = document.getElementById("pending-container");
@@ -187,7 +186,7 @@
                         const recipientEmail = data.email;
                         const roomType = data.roomType;
                         const deleteMailData = { recipientName, recipientEmail };
-                        console.log(deleteMailData);
+                        // console.log(deleteMailData);
 
                         Params = {
                             method: "POST",
@@ -201,7 +200,7 @@
                             .then(res => { })
                             .catch(err => { console.log(err) })
 
-                        const deletePendingApplicant = fetch(`http://localhost:3000/applicants/${data._id}`, {
+                        const deletePendingApplicant = fetch(`/applicants/${data._id}`, {
                             method: "DELETE",
                             headers: {
                                 "Content-Type": "application/json"
@@ -213,22 +212,14 @@
                         })
                     })
 
-                    // i_gmail.addEventListener("click",(e)=>{
-                    //     e.preventDefault();
-                    //     const email = document.getElementById("")
-                    // })
-
                     i_gmail.addEventListener("click", (e) => {
                         e.preventDefault();
 
                         const recipientName = data.fullname;
                         const recipientEmail = data.email;
                         const roomType = data.roomType;
-                        // console.log(recipientName);
-                        // console.log(recipientEmail);
-                        // console.log(recipientRoomType);
                         const singleMailData = { recipientName, recipientEmail };
-                        console.log(singleMailData);
+                        // console.log(singleMailData);
 
                         Params = {
                             method: "POST",
@@ -259,7 +250,7 @@
                         newHosteliteData.roomNo = '';
                         newHosteliteData.isPaid = 'true';
 
-                        const newHostelite_h1 = fetch("http://localhost:3000/hostelites", {
+                        const newHostelite_h1 = fetch("/hostelites", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
@@ -267,7 +258,7 @@
                             body: JSON.stringify(newHosteliteData)
                         }).then(res => res.json())
                             .then((data) => {
-                                const deletePendingApplicant = fetch(`http://localhost:3000/applicants/${data._id}`, {
+                                const deletePendingApplicant = fetch(`/applicants/${data._id}`, {
                                     method: "DELETE",
                                     headers: {
                                         "Content-Type": "application/json"
@@ -287,7 +278,7 @@
                         newHosteliteData.roomNo = '';
                         newHosteliteData.isPaid = 'true';
 
-                        const newHostelite_h2 = fetch("http://localhost:3000/hostelites", {
+                        const newHostelite_h2 = fetch("/hostelites", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
@@ -295,7 +286,7 @@
                             body: JSON.stringify(newHosteliteData)
                         }).then(res => res.json())
                             .then((data) => {
-                                const deletePendingApplicant = fetch(`http://localhost:3000/applicants/${data._id}`, {
+                                const deletePendingApplicant = fetch(`/applicants/${data._id}`, {
                                     method: "DELETE",
                                     headers: {
                                         "Content-Type": "application/json"
@@ -315,7 +306,7 @@
                         newHosteliteData.roomNo = '';
                         newHosteliteData.isPaid = 'true';
 
-                        const newHostelite_h3 = fetch("http://localhost:3000/hostelites", {
+                        const newHostelite_h3 = fetch("/hostelites", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
@@ -323,7 +314,7 @@
                             body: JSON.stringify(newHosteliteData)
                         }).then(res => res.json())
                             .then((data) => {
-                                const deletePendingApplicant = fetch(`http://localhost:3000/applicants/${data._id}`, {
+                                const deletePendingApplicant = fetch(`/applicants/${data._id}`, {
                                     method: "DELETE",
                                     headers: {
                                         "Content-Type": "application/json"

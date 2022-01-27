@@ -95,13 +95,6 @@
 
             <script>
 
-                //     const allUserData = fetch("http://localhost:3000/users").then((user)=>{
-                //   console.log("all users : ");
-                //   console.log(user);
-                // }).catch((error)=>{
-                //   console.log(error);
-                // })
-                // console.log("all users : ",allUserData);
                 const adminAvatar = document.getElementById("a_avatar");
     
                 const adminFullName = document.getElementById("a_fullname");
@@ -112,7 +105,7 @@
                 const adminAddress = document.getElementById("a_address");
     
     
-                const admin = fetch("http://localhost:3000/admins/me").then((res) => {
+                const admin = fetch("/admins/me").then((res) => {
                     return res.json();
                 }).then((admin) => {
                     // console.log(user);
@@ -125,7 +118,7 @@
                     if (admin.address) { adminAddress.innerHTML = admin.address };
                     
     
-                    const avatarURL = fetch(`http://localhost:3000/admins/${admin._id}/avatar`).then((result) => {
+                    const avatarURL = fetch(`/admins/${admin._id}/avatar`).then((result) => {
                         if(result){
                             if(result.url){
                                 adminAvatar.src = result.url;

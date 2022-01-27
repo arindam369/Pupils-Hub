@@ -189,7 +189,7 @@
                         }
                         updatedData.isPaid = h_isPaid;
 
-                        const updatedHostelite = fetch(`http://localhost:3000/hostelites/${h_id}`, {
+                        const updatedHostelite = fetch(`/hostelites/${h_id}`, {
                             method: "PATCH",
                             headers: {
                                 "Content-Type": "application/json"
@@ -212,7 +212,7 @@
                         e.preventDefault();
                         const h_id = e.srcElement[0].value;
 
-                        const deleteHostelite = fetch(`http://localhost:3000/hostelites/${h_id}`, {
+                        const deleteHostelite = fetch(`/hostelites/${h_id}`, {
                             method: "DELETE",
                             headers: {
                                 "Content-Type": "application/json"

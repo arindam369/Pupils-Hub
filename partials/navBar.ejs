@@ -87,16 +87,15 @@
 
 
   // check whether user is logged in or not :
-  const isAuthenticated = fetch("http://localhost:3000/users/me").then((res) => {
+  const isAuthenticated = fetch("/users/me").then((res) => {
     return res.json();
   }).then((user) => {
-    console.log({isLogged: 1});
-    // console.log(user.email);
+    // console.log({isLogged: 1});
     loginButton.hidden = true;
     logoutButton.hidden = false;
 
   }).catch((error) => {
-    console.log({isLogged: 0});
+    // console.log({isLogged: 0});
     loginButton.hidden = false;
     logoutButton.hidden = true;
   });

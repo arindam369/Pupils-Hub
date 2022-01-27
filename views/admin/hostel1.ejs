@@ -179,7 +179,7 @@
             const h1_noOfSharingRooms = document.getElementById("h1-noOfSharingRooms");
 
 
-            const allHostelites_h1 = fetch("http://localhost:3000/hostelites").then((res) => {
+            const allHostelites_h1 = fetch("/hostelites").then((res) => {
                 return res.json();
             }).then((dataArray) => {
 

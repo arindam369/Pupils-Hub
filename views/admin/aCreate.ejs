@@ -136,12 +136,8 @@
                         })
                     }
                     else if (newAdmin_pass.match(/[a-z]/g) && newAdmin_pass.match(/[A-Z]/g) && newAdmin_pass.match(/[0-9]/g) && newAdmin_pass.match(/[^a-zA-Z\d]/g) && newAdmin_pass.length >= 6) {
-                        // Toast.fire({
-                        //     icon: 'success',
-                        //     title: 'New Admin Created successfully'
-                        // })
 
-                        const newCreatedAdmin = fetch("http://localhost:3000/admins", {
+                        const newCreatedAdmin = fetch("/admins", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
@@ -169,21 +165,6 @@
                     }
             })
 
-
-
-
-            // const allApplicants = fetch("http://localhost:3000/applicants").then((res) => {
-            //     return res.json();
-            // }).then((dataArray) => {
-            //     console.log("Applicants : ");
-            //     console.log(dataArray);
-                
-
-
-
-            // }).catch((error) => {
-            //     console.log(error);
-            // });
 
         </script>
 

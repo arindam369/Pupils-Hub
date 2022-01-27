@@ -148,11 +148,11 @@
 
 
 
-                const admin = fetch("http://localhost:3000/admins/me").then((res) => {
+                const admin = fetch("/admins/me").then((res) => {
                     return res.json();
                 }).then((admin) => {
 
-                    const patchURL = `http://localhost:3000/admins/${admin._id}`;
+                    const patchURL = `/admins/${admin._id}`;
 
 
                     updateNameForm.addEventListener("submit", (e) => {
@@ -277,9 +277,7 @@
                                 title: 'Please fill all fields'
                             })
                         }
-                        // console.log(oldPass);
-                        // console.log(newPass);
-                        // console.log(confirmPass);
+
                         if (newPass !== confirmPass) {
                             updatePasswordForm.reset();
                             return Toast.fire({
@@ -287,6 +285,7 @@
                                 title: "Confirm password doesn't match"
                             })
                         }
+
                         if (!newPass.match(/[a-z]/g) || !newPass.match(/[A-Z]/g) || !newPass.match(/[0-9]/g) || !newPass.match(/[^a-zA-Z\d]/g) || !newPass.length >= 6) {
                             updatePasswordForm.reset();
                             return Toast.fire({
@@ -295,7 +294,7 @@
                             })
                         }
 
-                        const isThisOldAdmin = fetch("http://localhost:3000/admins/isOldAdmin", {
+                        const isThisOldAdmin = fetch("/admins/isOldAdmin", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
@@ -304,7 +303,6 @@
                         }).then((res) => {
                             return res.json();
                         }).then((data) => {
-                            // console.log(data);
 
                             const updatedAdmin_pass = fetch(patchURL, {
                                 method: "PATCH",

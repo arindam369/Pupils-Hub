@@ -85,11 +85,10 @@
 
         <script>
 
-            const allAnnouncements = fetch("http://localhost:3000/announcements").then((res) => {
+            const allAnnouncements = fetch("/announcements").then((res) => {
                 return res.json();
             }).then((dataArray) => {
-                console.log("Announcements : ");
-                console.log(dataArray);
+                // console.log(dataArray);
                 dataArray.forEach((data) => {
 
                     const announcementContainer = document.getElementById("announcements-container");
