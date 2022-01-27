@@ -2,16 +2,14 @@ require("dotenv").config();
 const express = require("express")
 const app = express();
 require("./src/db/mongoose");
-const User = require("./src/models/user");
 const userRouter = require("./src/routers/user");
 const applicantRouter = require("./src/routers/applicant");
 const hosteliteRouter = require("./src/routers/hostelite");
 const adminRouter = require("./src/routers/admin");
 const announcementRouter = require("./src/routers/announcement");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 const auth = require("./src/middleware/auth");
+const adminAuth = require("./src/middleware/adminAuth");
 const cookieParser = require("cookie-parser");
 const sendMail = require('./src/routers/mail');
 const sSendMail = require('./src/routers/signup_mail');
@@ -19,8 +17,6 @@ const hSendMail = require('./src/routers/helpmail');
 const singlesendMail = require('./src/routers/singleMail');
 const sharingsendMail = require('./src/routers/sharingMail');
 const deleteMail = require('./src/routers/deleteMail');
-
-const adminAuth = require("./src/middleware/adminAuth");
 const nodemailer = require("nodemailer");
 const Razorpay = require("razorpay");
 
@@ -32,18 +28,8 @@ app.use(cookieParser());
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.use(express.json());
-// app.use(userRouter);
 
-const SECRET = "This is my little secret";
-const myFunc = async ()=>{
-    const token = jwt.sign({_id:"12345abcde"},SECRET,{expiresIn:"1 min"});
-    // console.log(token);
-
-    const data = jwt.verify(token,SECRET);
-    console.log(data);
-}
-// myFunc();
-
+const SECRET = process.env.SECRET_KEY;
 
 
 // ----------------------------------------------------------
@@ -116,14 +102,6 @@ app.post('/email', (req, res) => {
     const { name, number, email, query } = req.body;
     sendMail(
         name, number, email, query
-        // function (err, data) {
-        //     if (err) {
-        //         res.status(500).json({ message: 'Internal Error!!' })
-        //     }
-        //     else {
-        //         res.json({ message: 'Message received' })
-        //     }
-        // })
     )
 })
 
@@ -135,7 +113,6 @@ app.post('/sEmail', (req, res) => {
         name, email
     )
 })
-
 app.post('/helpmail', (req, res) => {
     const { name, email, subject, message } = req.body;
     hSendMail(
@@ -148,14 +125,12 @@ app.post('/reject', (req, res) => {
         recipientName, recipientEmail
     )
 })
-
 app.post('/sSingle', (req, res) => {
     const { recipientName, recipientEmail } = req.body;
     singlesendMail(
         recipientName, recipientEmail
     )
 })
-
 app.post('/sSharing', (req, res) => {
     const { recipientName, recipientEmail } = req.body;
     sharingsendMail(
@@ -165,7 +140,7 @@ app.post('/sSharing', (req, res) => {
 
 
 app.listen(port, () => {
-    console.log("Server is running on port:3000");
+    console.log(`Server is running on port: ${port}`);
 })
 app.use(userRouter);
 app.use(applicantRouter);
@@ -174,45 +149,32 @@ app.use(hosteliteRouter);
 app.use(announcementRouter);
 
 
-
 // ============================ razorpay ===============================
 
-//store this in the database
-// {
-//     "razorpay_payment_id": "pay_29QQoUBi66xm2f",
-//     "razorpay_order_id": "order_9A33XWu170gUtm",
-//     "razorpay_signature": "9ef4dffbfd84f1318f6739a3ce19f9d85851857ae648f114332d8401e0949a3d"
-// }
-
 const razorpay = new Razorpay({
-    key_id: 'rzp_test_Dc8k9akyGMSOgx',
-    key_secret: 'Zb6BGm9DWG5j2NRpGesk8unw'
+    key_id: process.env.RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_KEY_SECRET
 })
 
 app.set('views', 'views')
-
 app.get('/payment', (req, res) => {
     res.redirect("/sDashboard");
 })
-
 app.post('/order', (req, res) => {
 
     let options = {
         amount: 5000 * 100,
         currency: "INR"
-        // receipt: uniqueID(),
     };
 
     razorpay.orders.create(options, (err, order) => {
-        // order_id_var=order.id
         if (err) {
             return res.status(500).json({
                 error: err
             })
         }
-        console.log(order)
-        // orderId = order.id
-        res.json(order)
+        console.log(order);
+        res.json(order);
     })
 })
 
@@ -259,7 +221,7 @@ app.post('/is-order-completed', (req, res) => {
                 service: 'gmail',
                 auth: {
                     user: 'gojos8675@gmail.com',
-                    pass: '#GojoSatoru24'
+                    pass: process.env.GOJO_MAIL_PASS
                 }
             });
             var mailOptions = {
