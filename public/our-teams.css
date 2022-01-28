@@ -1,0 +1,149 @@
+body
+{
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    margin: 0px;
+}
+.team{
+    margin-top: 120px;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+}
+.team i{
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+#hd
+{
+    text-align: center;
+    color: rgb(45, 17, 110);
+    font-family: monospace;
+    font-size: 3.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.team-container
+{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1vw;
+    width: 100vw;
+    /* margin: 2vw 6vw; */
+    text-align: center;
+    justify-content: space-around;
+    /* border: 1px solid red; */
+}
+
+#team-member
+{
+    margin: 3vw 0vw;
+    height: 350px;
+    width: 250px; 
+    /*background-color: bisque;*/
+}
+
+#my-pic
+{
+    width: 12em;
+    height: 12em;
+    margin-top: 10px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+    box-shadow: 0px 0px 5px 4px rgba(138, 137, 137, 0.4);
+    border-radius: 50%;
+}
+
+#pic
+{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#name
+{
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+    color: rgba(47, 10, 133, 0.9);
+    font-weight: 700;
+}
+
+#info
+{
+    font-size: 16px;
+    margin-top: 10px;
+    font-family: sans-serif;
+    color: rgba(55, 53, 58, 0.7);
+
+}
+
+#social-media
+{
+    align-content: center;
+    padding: 0px;
+}
+
+#sm a i
+{
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: box-shadow 0.4s;
+}
+
+#sm a i:hover
+{
+    box-shadow: 0px 0px 10px 6px rgb(255, 255, 255, 0.8);
+}
+
+#sm 
+{
+    display: inline-block;
+    margin-right: 4px;
+    margin-left: 4px;
+}
+
+#linkedin
+{
+    color: #0077b5
+}
+
+#instagram
+{
+    color: #8a3ab9;
+    color: rgb(202, 17, 119);
+}
+
+#github
+{
+    color: #000000;
+}
+
+#facebook
+{
+    color: #4267B2;
+}
+
+#email
+{
+    color: #d44638;
+}
+.team i{
+    font-size: 3rem;
+    color: #2d116e;
+}
+
+@media(max-width:435px){
+    .team i{
+        font-size: 2rem;
+    }
+    #hd{
+        font-size: 2.4rem;
+    }
+}

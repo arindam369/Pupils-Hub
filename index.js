@@ -96,6 +96,9 @@ app.get("/aSettings",adminAuth,(req,res)=>{
 app.get("/meals",(req,res)=>{
     res.render("meal-plan");
 })
+app.get("/teams",(req,res)=>{
+    res.render("our-teams");
+})
 
 
 // mail via nodemailer (homepage) :
