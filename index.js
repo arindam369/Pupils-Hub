@@ -16,6 +16,9 @@ const sSendMail = require('./src/routers/signup_mail');
 const hSendMail = require('./src/routers/helpmail');
 const singlesendMail = require('./src/routers/singleMail');
 const sharingsendMail = require('./src/routers/sharingMail');
+const h1SendMail = require('./src/routers/h1');
+const h2SendMail = require('./src/routers/h2');
+const h3SendMail = require('./src/routers/h3');
 const deleteMail = require('./src/routers/deleteMail');
 const nodemailer = require("nodemailer");
 const Razorpay = require("razorpay");
@@ -95,7 +98,6 @@ app.get("/meals",(req,res)=>{
 })
 
 
-
 // mail via nodemailer (homepage) :
 app.post('/email', (req, res) => {
     console.log('Data: ', req.body);
@@ -137,7 +139,24 @@ app.post('/sSharing', (req, res) => {
         recipientName, recipientEmail
     )
 })
-
+app.post('/h1', (req, res) => {
+    const { recipientName, recipientEmail } = req.body;
+    h1SendMail(
+        recipientName, recipientEmail
+    )
+})
+app.post('/h2', (req, res) => {
+    const { recipientName, recipientEmail } = req.body;
+    h2SendMail(
+        recipientName, recipientEmail
+    )
+})
+app.post('/h3', (req, res) => {
+    const { recipientName, recipientEmail } = req.body;
+    h3SendMail(
+        recipientName, recipientEmail
+    )
+})
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

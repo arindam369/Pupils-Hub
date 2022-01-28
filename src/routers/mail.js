@@ -1,24 +1,30 @@
 const nodemailer = require('nodemailer');
-const mailGun = require('nodemailer-mailgun-transport');
 
-const auth = {
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
     auth: {
-        api_key: 'c0f308770e55cc02b4f2adb29b75039c-054ba6b6-28c7c9fc',
-        domain: 'sandbox2c15d151ef014490b33f7d28f2d5bbba.mailgun.org',
+        user: process.env.NODEMAILER_USERNAME,
+        pass: process.env.NODEMAILER_PASS
     }
-};
+});
 
-const transporter = nodemailer.createTransport(mailGun(auth));
+const sendMail = (name,number,email,query) => {
 
-
-const sendMail = (name, number, email, query) => {
-    const mailOptions = {
-        from: email,
+    var mailOptions = {
+        from: `${email}`,
         to: 'neophytesAdm@gmail.com',
         subject: `QUERY FROM ${name}`,
         html: `<h2>NAME: ${name}</h2><br><h2>CONTACT DETAILS: ${number}</h2><br><p style="color: red;"><b>QUERY:${query}</b></p>`
-    }
-     transporter.sendMail(mailOptions)
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log('Email sent: ' + info.response)
+        }
+    })
 }
 
-module.exports=sendMail;
+module.exports = sendMail;

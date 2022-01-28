@@ -219,7 +219,6 @@
                         const recipientEmail = data.email;
                         const roomType = data.roomType;
                         const singleMailData = { recipientName, recipientEmail };
-                        // console.log(singleMailData);
 
                         Params = {
                             method: "POST",
@@ -250,6 +249,24 @@
                         newHosteliteData.roomNo = '';
                         newHosteliteData.isPaid = 'true';
 
+                        const recipientName = data.fullname;
+                        const recipientEmail = data.email;
+                        // const roomType = data.roomType;
+                        const h1MailData = { recipientName, recipientEmail };
+
+                        Params = {
+                            method: "POST",
+                            headers: {
+                                "content-type": "application/json; charset=UTF-8"
+                            },
+                            body: JSON.stringify(h1MailData)
+                        }
+                        fetch('/h1', Params)
+                                .then(data => { return data.json() })
+                                .then(res => { })
+                                .catch(err => { console.log(err) })
+
+
                         const newHostelite_h1 = fetch("/hostelites", {
                             method: "POST",
                             headers: {
@@ -278,6 +295,25 @@
                         newHosteliteData.roomNo = '';
                         newHosteliteData.isPaid = 'true';
 
+                        const recipientName = data.fullname;
+                        const recipientEmail = data.email;
+                        // const roomType = data.roomType;
+                        const h2MailData = { recipientName, recipientEmail };
+
+                        Params = {
+                            method: "POST",
+                            headers: {
+                                "content-type": "application/json; charset=UTF-8"
+                            },
+                            body: JSON.stringify(h2MailData)
+                        }
+                        fetch('/h2', Params)
+                                .then(data => { return data.json() })
+                                .then(res => { })
+                                .catch(err => { console.log(err) })
+
+
+
                         const newHostelite_h2 = fetch("/hostelites", {
                             method: "POST",
                             headers: {
@@ -305,6 +341,26 @@
                         newHosteliteData.hostelNo = '3';
                         newHosteliteData.roomNo = '';
                         newHosteliteData.isPaid = 'true';
+
+
+                        const recipientName = data.fullname;
+                        const recipientEmail = data.email;
+                        // const roomType = data.roomType;
+                        const h3MailData = { recipientName, recipientEmail };
+
+                        Params = {
+                            method: "POST",
+                            headers: {
+                                "content-type": "application/json; charset=UTF-8"
+                            },
+                            body: JSON.stringify(h3MailData)
+                        }
+                        fetch('/h3', Params)
+                                .then(data => { return data.json() })
+                                .then(res => { })
+                                .catch(err => { console.log(err) })
+
+
 
                         const newHostelite_h3 = fetch("/hostelites", {
                             method: "POST",

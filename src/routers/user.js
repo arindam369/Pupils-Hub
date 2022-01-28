@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const router = new express.Router();
 const User = require("../models/user");
 const auth = require("../middleware/auth");
+const adminAuth = require("../middleware/adminAuth");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const multer = require("multer");
@@ -25,13 +26,14 @@ router.post("/users", (req, res) => {
         // res.send(result);
         res.redirect("/login");
     }).catch((error) => {
-        console.log("User Creation Failed. Error : ", error);
-        res.status(400).send(error);
+        // console.log("User Creation Failed. Error : ", error);
+        res.render("warning");
+        // res.status(400).send("Same email registered"+error);
     })
 })
 
 // reading all user data ===========================
-router.get("/users",auth, (req, res) => {
+router.get("/users",adminAuth, (req, res) => {
     User.find({}).then((result) => {
         console.log("All Users : ", result);
         res.send(result);
@@ -47,7 +49,7 @@ router.get("/users/me",auth, async (req, res) => {
 })
 
 // reading a particular user's data ====================
-router.get("/users/:id", (req, res) => {
+router.get("/users/:id",adminAuth, (req, res) => {
     const user_id = req.params.id;
     // res.send(user_id);
     User.find({ _id: user_id }).then((foundUser) => {
@@ -111,7 +113,8 @@ router.post("/users/login",async (req,res)=>{
         res.redirect("/sDashboard");
     }
     catch(error){
-        res.status(400).send("Authentication Failed hai");
+        res.render("authFail");
+        // res.status(400).send("Authentication Failed");
     }
 })
 
