@@ -375,3 +375,34 @@ input[type=number] {
 .footer-li{
     justify-content: center;
 }
+.meal-hostel{
+    display: flex;
+    justify-content: space-around;
+    /* border: 2px solid red; */
+    margin-top: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.4rem;
+}
+.meal-hostel a{
+    text-decoration: none;
+}
+.meal{
+    color: white;
+    background-color: #682a01;;
+    padding: 7px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.meal:active{
+    transform: scale(.93);
+}
+.hostel{
+    color: white;
+    background-color: #682a01;
+    padding: 7px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.hostel:active{
+    transform: scale(.93);
+}
