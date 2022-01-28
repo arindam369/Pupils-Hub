@@ -20,15 +20,15 @@ const deleteMail = (name, email) => {
         <div>
         <h4>${name},</h4>
         <p>
-            With  
+        We regret to inform you that your application to Pupils' Hub for opting a room has been rejected due to some invalid data entered by you. You may therefore refill the form later and make sure the data entered by you is true to your knowledge.
         </p>
         </div>
         <br>
         
         <p>For any further queries, you can contact us via:<br>
         Email: neophytesAdm@gmail.com<br>
-        Phone: 9876543211<br>
-        Whatsapp: 9876543456
+        Phone: 9876543210<br>
+        Whatsapp: 9876543210
         </p>`
     }
     transporter.sendMail(mailOptions, (err, info) => {

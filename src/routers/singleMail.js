@@ -20,15 +20,17 @@ const singlesendMail = (name, email) => {
         <div>
         <h2>Single Rooms</h2>
         <h4>Hello ${name},</h4>
-        <p>You are among the earliest members to join the community. Check out our hostels in Saltlake, Kolkata where we provide <br>quality living at reasonable price. You can find more about us from our <a href="/faq">Frequently Asked Questions</a> section.<br> <a href="/login">Log in</a> for more information. 
+        <p>
+        Your application is under consideration by Pupils' Hub admin. Please pay the advance payment for the final allocation of hostel. 
+        As per your application for Single Room Rs. 5000 needs to be payed as rent for 1 month in advance.
         </p>
         </div>
         <br>
         
         <p>For any further queries, you can contact us via:<br>
         Email: neophytesAdm@gmail.com<br>
-        Phone: 9876543211<br>
-        Whatsapp: 9876543456
+        Phone: 9876543210<br>
+        Whatsapp: 9876543210
         </p>`
     }
     transporter.sendMail(mailOptions, (err, info) => {
