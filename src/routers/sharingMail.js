@@ -22,7 +22,7 @@ const sharingsendMail = (name, email) => {
         <h4>Hello ${name},</h4>
         <p>
         Your application is under consideration by Pupils' Hub admin. Please pay the advance payment for the final allocation of hostel. 
-        As per your application for Shared Room Rs. 5000 needs to be payed as rent for 2 months in advance.
+        As per your application for Shared Room Rs. 5000 needs to be payed as rent for 2 months in advance. The rent needs to be paid within 48 hours failing which will cause the application to be rejected.
         </p>
         </div>
         <br>
