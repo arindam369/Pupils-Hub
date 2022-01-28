@@ -76,13 +76,13 @@ app.get("/aPending",adminAuth,(req,res)=>{
     res.render("admin/aPending");
 })
 app.get("/aHostel1",adminAuth,(req,res)=>{
-    res.render("admin/Hostel1");
+    res.render("admin/hostel1");
 })
 app.get("/aHostel2",adminAuth ,(req,res)=>{
-    res.render("admin/Hostel2");
+    res.render("admin/hostel2");
 })
 app.get("/aHostel3",adminAuth,(req,res)=>{
-    res.render("admin/Hostel3");
+    res.render("admin/hostel3");
 })
 app.get("/aUpdateHostelites",adminAuth,(req,res)=>{
     res.render("admin/aHostelites");
