@@ -1,0 +1,54 @@
+body
+{
+    margin: 0px;
+}
+#TC
+{
+    padding: 5vh 10vw;
+    text-align: justify;
+    color: rgb(105, 92, 92);
+    font-family: serif;
+    font-size: 1rem;
+    
+}
+#TC .term-heads{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+}
+#TC h1
+{
+    display: inline-block;
+    margin: 10px 20px;
+    /*text-decoration: underline;*/
+}
+#image{
+    display: inline-block;
+}
+#head-terms{
+    /* border: 1px solid red; */
+    font-weight: 600;
+}
+#image img
+{
+    height: 30px;
+    margin: -5px;
+    /* border: 1px solid red; */
+}
+#TC h1
+{
+    color: #020202e1;
+}
+#TC h3
+{
+    color: #501414;
+}
+#TC a
+{
+    color:rgb(41, 40, 40);
+    text-decoration: underline rgb(48, 48, 48);
+}
+.bold-term{
+    font-weight: 600;
+    color: #0275d8;
+}

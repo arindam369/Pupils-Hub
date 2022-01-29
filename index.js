@@ -102,6 +102,9 @@ app.get("/teams",(req,res)=>{
 app.get("/hostels",(req,res)=>{
     res.render("exploreHostels");
 })
+app.get("/terms",(req,res)=>{
+    res.render("terms");
+})
 
 
 // mail via nodemailer (homepage) :
