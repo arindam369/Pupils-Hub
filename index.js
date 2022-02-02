@@ -108,6 +108,9 @@ app.get("/terms",(req,res)=>{
 app.get("/faq",(req,res)=>{
     res.render("faq");
 })
+app.get("/privacy",(req,res)=>{
+    res.render("privacy");
+})
 
 
 // mail via nodemailer (homepage) :

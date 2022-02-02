@@ -1,0 +1,35 @@
+body{
+    margin: 0px;
+}
+#privacy{
+    padding: 5vh 10vw;
+    font-family: serif;
+    color: rgb(112, 111, 111);
+    font-size: 1rem;
+    text-align: justify;
+}
+#image{
+    display: inline-block;
+    margin-right: 5px;
+}
+#image img{
+    height: 35px;
+    margin-bottom: -5px;
+}
+#privacy h1{
+    display: inline-block;
+    margin: 10px;
+    color: black;
+}
+#privacy a{
+    color: rgb(48, 48, 48);
+    text-decoration: underline rgb(49, 49, 49);
+}
+#privacy h3{
+    color: rgb(80, 20, 20);
+}
+.privacy-head{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}

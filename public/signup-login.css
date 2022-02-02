@@ -207,3 +207,6 @@ body
     margin-left: 43px;
     width: 240px;
 }
+#alert{
+    border: 1px solid red;
+}
