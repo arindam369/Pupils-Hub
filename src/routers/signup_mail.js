@@ -19,7 +19,7 @@ const sSendMail = (name, email) => {
         </div>
         <div>
         <h4>Hello ${name},</h4>
-        <p>You are among the earliest members to join the community. Check out our hostels in Saltlake, Kolkata where we provide <br>quality living at reasonable price. You can find more about us from our <a href="/faq">Frequently Asked Questions</a> section.<br> <a href="https://pupils-hub.herokuapp.com/login">Log in</a> for more information. 
+        <p>You are among the earliest members to join the community. Check out our hostels in Saltlake, Kolkata where we provide <br>quality living at reasonable price. You can find more about us from our <a href="https://pupils-hub.herokuapp.com/faq">Frequently Asked Questions</a> section.<br> <a href="https://pupils-hub.herokuapp.com/login">Log in</a> for more information. 
         </p>
         </div>
         <br>

@@ -105,6 +105,9 @@ app.get("/hostels",(req,res)=>{
 app.get("/terms",(req,res)=>{
     res.render("terms");
 })
+app.get("/faq",(req,res)=>{
+    res.render("faq");
+})
 
 
 // mail via nodemailer (homepage) :
