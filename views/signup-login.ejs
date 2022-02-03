@@ -68,12 +68,14 @@
                         name="pass">
                     <input type="password" class="input-field" placeholder="Confirm password" onkeyup="confirm(this)"
                         required name="cpass">
-                    <error style="font-size: 11px; color:red; margin-left: 10px" id="alert"></error>
+                    <div class="error-box">
+                        <error style="font-size: 11px; color:red; margin-left: 10px" id="alert"></error>
+                    </div>
                     <div>
                         <input type="checkbox" class="check-box" required><span class="read-terms">I read and agree to
                             <a href="/terms" style="text-decoration: none; font-weight: 600;">
-                            Terms
-                            & Conditions</a> </span>
+                                Terms
+                                & Conditions</a> </span>
                     </div>
                     <button type="submit" class="submit-button" id="signupButton">Sign Up</button>
                 </form>
