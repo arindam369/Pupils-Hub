@@ -1,6 +1,7 @@
 # Pupils' Hub
 ## Introduction
-        The intention behind creating this website was to simplify the various processes associated with the hostel management. Checking the availability of rooms, allocation of rooms, managing hostel fees, and all such hostel management activities manually consume time, effort, and resources. Moreover, the privacy and security of student information is also an important aspect of hostel management.
+<br/>
+&emsp; The intention behind creating this website was to simplify the various processes associated with the hostel management. Checking the availability of rooms, allocation of rooms, managing hostel fees, and all such hostel management activities manually consume time, effort, and resources. Moreover, the privacy and security of student information is also an important aspect of hostel management.
         Keeping in mind all the hostel management concerns of students, Pupils’ Hub is designed and developed. Right from students’ registration to allocating rooms, and transaction fees, it automates all day-to-day hostel activities.
 
 <br/><br/>
