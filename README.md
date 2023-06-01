@@ -59,6 +59,6 @@
   
 <br/> <br/>
 ## Links:
-**Link to the website:** &nbsp; https://pupils-hub.herokuapp.com  <br/>
+**Link to the website:** &nbsp; https://pupils-hub.onrender.com  <br/>
 **Project demo video:** &nbsp; https://www.youtube.com/watch?v=xQAOmea-2Yw
 
